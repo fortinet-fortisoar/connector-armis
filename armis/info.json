@@ -1,0 +1,570 @@
+{
+  "name": "armis",
+  "label": "Armis",
+  "description": "Protects organizations from cyber threats created by the onslaught of unmanaged and IoT devices. Get alerts and devices, update status of alerts and tag and untag devices.",
+  "category": "Asset Management",
+  "version": "1.0.0",
+  "publisher": "Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "type": "text",
+        "description": "URL of the Armis server to which you will connect and perform the automated operations.",
+        "placeholder": "Please enter the server URL",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "API Key",
+        "type": "password",
+        "name": "api_key",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "description": "API key to access the Armis endpoint to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_alerts",
+      "title": "Get Alerts",
+      "description": "Retrieves a detailed list of alerts from the Armis server based on the search criteria specified.",
+      "category": "investigation",
+      "annotation": "get_alerts",
+      "output_schema": {
+        "Armis": {
+            "Alert": {
+                "activityIds": [],
+                "activityUUIDs": [],
+                "alertId": "",
+                "connectionIds": [],
+                "description": "",
+                "deviceIds": [],
+                "severity": "",
+                "status": "",
+                "time": "",
+                "title": "",
+                "type": ""
+            }
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Max Alerts",
+          "name": "max_alerts",
+          "type": "text",
+          "tooltip": "Helps in limiting response to a specified number of alerts.",
+          "description": "(Optional) Maximum number of alerts that you want this operation to return in the response.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Time Frame",
+          "name": "time_frame",
+          "type": "text",
+          "tooltip": "Specify the time frame to retrieve the alerts from Armis server.",
+          "description": "(Optional) Specify the time frame to retrieve the alerts from Armis server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Alert ID",
+          "name": "alert_id",
+          "type": "text",
+          "tooltip": "Alert ID to retrieve its details.",
+          "description": "Alert ID to retrieve its details.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Risk Level",
+          "name": "risk_level",
+          "type": "multiselect",
+          "tooltip": "Risk Level of the alert that you want to retrieve from Armis server.",
+          "description": "(Optional) Risk Level of the alert that you want to retrieve from Armis server.",
+          "options": [
+            "High",
+            "Medium",
+            "Low"
+          ],
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "multiselect",
+          "tooltip": "Status of the alert that you want to retrieve from Armis server.",
+          "description": "(Optional) Status of the alert that you want to retrieve from Armis server.",
+          "options": [
+            "UNHANDLED",
+            "SUPPRESSED",
+            "RESOLVED"
+          ],
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Alert Type",
+          "name": "alert_type",
+          "type": "multiselect",
+          "tooltip": "Retrieves the alerts for specified alert type",
+          "description": "(Optional) Retrieves the alerts for specified alert type",
+          "options": [
+            "Policy Violation",
+            "System Policy Violation",
+            "Anomaly Detection"
+          ],
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "update_alert_status",
+      "title": "Update Alert Status",
+      "description": "Update status of specific alert on the Armis server based on alert ID you have specified.",
+      "category": "investigation",
+      "annotation": "update_alert_status",
+      "output_schema": {
+        "status": "",
+        "message": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Alert ID",
+          "name": "alert_id",
+          "type": "text",
+          "tooltip": "Alert ID to retrieve its details.",
+          "description": "Alert ID to retrieve its details.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "multiselect",
+          "tooltip": "Status of the alert that you want to retrieve from Armis server.",
+          "description": "(Optional) Status of the alert that you want to retrieve from Armis server.",
+          "options": [
+            "UNHANDLED",
+            "SUPPRESSED",
+            "RESOLVED"
+          ],
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_alerts_by_asq",
+      "title": "Get Alerts By Armis Standard Query",
+      "description": "Retrieves a detailed list of alerts from the Armis server based on the Armis Standard Query specified.",
+      "category": "investigation",
+      "annotation": "get_alerts_by_asq",
+      "output_schema": {
+          "Armis": {
+              "Alert": {
+                  "activityIds": [],
+                  "activityUUIDs": [],
+                  "alertId": "",
+                  "connectionIds": [],
+                  "description": "",
+                  "deviceIds": [],
+                  "severity": "",
+                  "status": "",
+                  "time": "",
+                  "title": "",
+                  "type": ""
+              }
+          }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Max Alerts",
+          "name": "max_alerts",
+          "type": "text",
+          "tooltip": "Helps in limiting response to a specified number of alerts.",
+          "description": "(Optional) Maximum number of alerts that you want this operation to return in the response.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Armis Standard Query",
+          "name": "query_string",
+          "type": "text",
+          "tooltip": "Retrieves alerts from the Armis server based on the Armis Standard Query you have specified.",
+          "description": "(Optional) Retrieves alerts from the Armis server based on the Armis Standard Query you have specified.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "add_tags_to_device",
+      "title": "Add Tags to a Device",
+      "description": "Adds tags to a Device.",
+      "category": "investigation",
+      "annotation": "add_tags_to_device",
+      "output_schema": {
+        "status": "",
+        "message": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Device ID",
+          "name": "device_id",
+          "type": "text",
+          "tooltip": "Device ID to which you will add tags to.",
+          "description": "Device ID to which you will add tags to.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "text",
+          "tooltip": "The list of tags you want to add.",
+          "description": "The list of tags you want to add.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "placeholder": "Comma separated name of tags",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "remove_tags_from_device",
+      "title": "Remove Tags from a Device",
+      "description": "Removes tags from a Device.",
+      "category": "investigation",
+      "annotation": "remove_tags_from_device",
+      "output_schema": {
+        "status": "",
+        "message": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Device ID",
+          "name": "device_id",
+          "type": "text",
+          "tooltip": "Device ID from which you will remove tags from.",
+          "description": "Device ID from which you will remove tags from.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "text",
+          "tooltip": "The list of tags you want to remove.",
+          "description": "The list of tags you want to remove.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "placeholder": "Comma separated name of tags",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_devices",
+      "title": "Get Devices",
+      "description": "Retrieves a detailed list of devices from the Armis server based on the search criteria specified.",
+      "category": "investigation",
+      "annotation": "get_devices",
+      "output_schema": {
+          "Armis": {
+              "Device": {
+                  "accessSwitch": "",
+                  "boundaries": "",
+                  "category": "",
+                  "customProperties": {},
+                  "dataSources": [
+                      {
+                          "firstSeen": "",
+                          "lastSeen": "",
+                          "name": "",
+                          "types": []
+                      },
+                      {
+                          "firstSeen": "",
+                          "lastSeen": "",
+                          "name": "",
+                          "types": []
+                      },
+                      {
+                          "firstSeen": "",
+                          "lastSeen": "",
+                          "name": "",
+                          "types": []
+                      },
+                      {
+                          "firstSeen": "",
+                          "lastSeen": "",
+                          "name": "",
+                          "types": []
+                      }
+                  ],
+                  "firstSeen": "",
+                  "id": "",
+                  "ipAddress": "",
+                  "ipv6": "",
+                  "lastSeen": "",
+                  "macAddress": "",
+                  "manufacturer": "",
+                  "model": "",
+                  "name": "",
+                  "operatingSystem": "",
+                  "operatingSystemVersion": "",
+                  "purdueLevel": "",
+                  "riskLevel": "",
+                  "sensor": {
+                      "name": "",
+                      "type": ""
+                  },
+                  "site": {
+                      "location": "",
+                      "name": ""
+                  },
+                  "tags": [],
+                  "type": "",
+                  "userIds": [],
+                  "visibility": ""
+              }
+          }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Name",
+          "name": "name",
+          "type": "text",
+          "tooltip": "Device name to retrieve its details.",
+          "description": "(Optional) Device name to retrieve its details.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Device ID",
+          "name": "device_id",
+          "type": "text",
+          "tooltip": "Device ID to retrieve its details.",
+          "description": "(Optional) Device ID to retrieve its details.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+         {
+          "title": "MAC Address",
+          "name": "mac_address",
+          "type": "text",
+          "tooltip": "Device MAC Address to retrieve its details.",
+          "description": "(Optional) Device MAC Address to retrieve its details.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "IP Address",
+          "name": "ip_address",
+          "type": "text",
+          "tooltip": "Device IP Address to retrieve its details.",
+          "description": "(Optional) Device IP Address to retrieve its details.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Device Type",
+          "name": "device_type",
+          "type": "text",
+          "tooltip": "Device types to filter result.",
+          "description": "(Optional) Device types to filter result.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Time Frame",
+          "name": "time_frame",
+          "type": "datetime",
+          "tooltip": "Specify the time frame to retrieve the devices from Armis server.",
+          "description": "(Optional) Specify the time frame to retrieve the devices from Armis server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Max Devices",
+          "name": "max_devices",
+          "type": "text",
+          "tooltip": "Helps in limiting response to a specified number of devices.",
+          "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Risk Level",
+          "name": "risk_level",
+          "type": "multiselect",
+          "tooltip": "Risk level of the devices that you want to retrieve from Armis server.",
+          "description": "(Optional) Risk level of the devices that you want to retrieve from Armis server..",
+          "options": [
+            "High",
+            "Medium",
+            "Low"
+          ],
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "operation": "get_devices_by_asq",
+      "title": "Get Devices By Armis Standard Query",
+      "description": "Retrieves a detailed list of devices from the Armis server based on the Armis Standard Query specified.",
+      "category": "investigation",
+      "annotation": "get_devices_by_asq",
+      "output_schema": {
+          "Armis": {
+              "Device": {
+                  "accessSwitch": "",
+                  "category": "",
+                  "dataSources": [
+                      {
+                          "firstSeen": "",
+                          "lastSeen": "",
+                          "name": "",
+                          "types": []
+                      },
+                      {
+                          "firstSeen": "",
+                          "lastSeen": "",
+                          "name": "",
+                          "types": []
+                      },
+                      {
+                          "firstSeen": "",
+                          "lastSeen": "",
+                          "name": "",
+                          "types": []
+                      }
+                  ],
+                  "firstSeen": "",
+                  "id": "",
+                  "ipAddress": "",
+                  "ipv6": "",
+                  "lastSeen": "",
+                  "macAddress": "",
+                  "manufacturer": "",
+                  "model": "",
+                  "name": "",
+                  "operatingSystem": "",
+                  "operatingSystemVersion": "",
+                  "riskLevel": "",
+                  "sensor": {
+                      "name": "",
+                      "type": ""
+                  },
+                  "site": {
+                      "location": "",
+                      "name": ""
+                  },
+                  "tags": [],
+                  "type": "",
+                  "user": "",
+                  "visibility": ""
+              }
+          }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Max Alerts",
+          "name": "max_alerts",
+          "type": "text",
+          "tooltip": "Helps in limiting response to a specified number of devices.",
+          "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Armis Standard Query",
+          "name": "query_string",
+          "type": "text",
+          "tooltip": "Retrieves devices from the Armis server based on the Armis Standard Query you have specified.",
+          "description": "(Optional) Retrieves devices from the Armis server based on the Armis Standard Query you have specified.",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        }
+      ]
+    }
+  ]
+}
+
+
