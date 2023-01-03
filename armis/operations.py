@@ -196,10 +196,10 @@ def get_alerts_by_asq(config, params):
 def get_devices_by_asq(config, params):
     arm = Armis(config)
     query_string = params.get('query_string')
-    max_alerts = params.get('max_alerts')
+    max_devices = params.get('max_devices')
     query_string = 'in:devices {}'.format(query_string)
-    if max_alerts:
-        params['length'] = str(max_alerts)
+    if max_devices:
+        params['length'] = str(max_devices)
     params['aql'] = query_string
     return arm.make_rest_call('/search/', params=params)
 

@@ -168,8 +168,8 @@
           "title": "Alert ID",
           "name": "alert_id",
           "type": "text",
-          "tooltip": "Alert ID to retrieve its details.",
-          "description": "Alert ID to retrieve its details.",
+          "tooltip": "Alert ID to update its status.",
+          "description": "Alert ID to update its status.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -178,7 +178,7 @@
         {
           "title": "Status",
           "name": "status",
-          "type": "multiselect",
+          "type": "select",
           "tooltip": "Status of the alert that you want to retrieve from Armis server.",
           "description": "(Optional) Status of the alert that you want to retrieve from Armis server.",
           "options": [
@@ -438,6 +438,7 @@
           "required": false,
           "editable": true,
           "visible": true,
+          "placeholder": "Comma separated type of devices",
           "value": ""
         },
         {
@@ -541,8 +542,8 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "Max Alerts",
-          "name": "max_alerts",
+          "title": "Max Devices",
+          "name": "max_devices",
           "type": "text",
           "tooltip": "Helps in limiting response to a specified number of devices.",
           "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
