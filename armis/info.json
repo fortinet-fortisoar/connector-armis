@@ -88,7 +88,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "placeholder": "10 Days"
+          "placeholder": "e.g. 10 Days"
         },
         {
           "title": "Risk Level",
@@ -433,7 +433,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "placeholder": " e.g. Ip Camera,Laptops",
+          "placeholder": " e.g. Ip Camera,Plc",
           "value": ""
         },
         {
@@ -462,7 +462,7 @@
           "editable": true,
           "visible": true,
           "value": "",
-          "placeholder": "10 Days"
+          "placeholder": "e.g. 10 Days"
         },
         {
           "title": "Max Devices",
