@@ -1,11 +1,11 @@
 """ Copyright start
-  Copyright (C) 2008 - 2022 Fortinet Inc.
+  Copyright (C) 2008 - 2023 Fortinet Inc.
   All rights reserved.
   FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
   Copyright end """
 
 from datetime import datetime
-from dateutil.tz import tzlocal
+import pytz
 import requests
 from connectors.core.connector import get_logger, ConnectorError
 
@@ -20,7 +20,7 @@ class Armis:
         self.verify_ssl = config.get('verify_ssl')
         self.secret = config.get('api_key')
         self.token = self.token if self.token else None
-        self.exp_time = self.exp_time if self.exp_time else datetime.now(tzlocal()).isoformat()
+        self.exp_time = self.exp_time if self.exp_time else datetime.now(pytz.utc)
 
     def make_rest_call(self, endpoint, headers=None, params=None, payload=None, method='GET'):
         self.token = self.get_token()
@@ -66,10 +66,10 @@ class Armis:
 
     def get_token(self):
         endpoint = '{0}{1}'.format(self.server_url, '/access_token/')
-        if self.token is None or self.exp_time < datetime.now(tzlocal()).isoformat():
+        if self.token is None or self.exp_time < datetime.now(pytz.utc):
             resp = (requests.request('POST', endpoint, params={'secret_key': self.secret})).json()
             self.token = resp.get('data').get('access_token')
-            self.exp_time = resp.get('data').get('expiration_utc')
+            self.exp_time = datetime.strptime(resp.get('data').get('expiration_utc'), '%Y-%m-%dT%H:%M:%S.%f%z')
 
         return self.token
 
@@ -86,7 +86,7 @@ def get_alerts(config, params):
     if time_frame:
         query_string += f' timeFrame:"{time_frame}"'
     else:
-        query_string += f' timeFrame:"30 Days"'
+        query_string += f' timeFrame:"7 Days"'
     if alert_id:
         query_string += f' alertId:({alert_id})'
     if risk_level:
@@ -118,7 +118,7 @@ def get_devices(config, params):
     if time_frame:
         query_string += f' timeFrame:"{time_frame}"'
     else:
-        query_string += f' timeFrame:"30 Days"'
+        query_string += f' timeFrame:"7 Days"'
     if name:
         query_string += f' name:({name})'
     if device_id:
@@ -158,7 +158,7 @@ def update_alert_status(config, params):
     return arm.make_rest_call(endpoint=endpoint, headers=headers, payload=payload, method='PATCH')
 
 
-def add_tags_to_device(config, params):
+def add_device_tags(config, params):
     arm = Armis(config)
     device_id = params.get('device_id')
     tags = params.get('tags')
@@ -170,7 +170,7 @@ def add_tags_to_device(config, params):
     return arm.make_rest_call(endpoint=endpoint, payload=payload, method='POST')
 
 
-def remove_tags_from_device(config, params):
+def remove_device_tags(config, params):
     arm = Armis(config)
     device_id = params.get('device_id')
     tags = params.get('tags')
@@ -216,8 +216,8 @@ operations = {
     'get_alerts': get_alerts,
     'update_alert_status': update_alert_status,
     'get_alerts_by_asq': get_alerts_by_asq,
-    'add_tags_to_device': add_tags_to_device,
-    'remove_tags_from_device': remove_tags_from_device,
+    'add_device_tags': add_device_tags,
+    'remove_device_tags': remove_device_tags,
     'get_devices': get_devices,
     'get_devices_by_asq': get_devices_by_asq
 }

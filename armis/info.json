@@ -1,7 +1,7 @@
 {
   "name": "armis",
   "label": "Armis",
-  "description": "Protects organizations from cyber threats created by the onslaught of unmanaged and IoT devices. Get alerts and devices, update status of alerts and tag and untag devices.",
+  "description": "Armis connector provides protection from cyber threats created by the onslaught of unmanaged and IoT devices. Get alerts and devices, update status of alerts and tag and untag devices.",
   "category": "Asset Management",
   "version": "1.0.0",
   "publisher": "Community",
@@ -72,35 +72,33 @@
         {
           "title": "Max Alerts",
           "name": "max_alerts",
-          "type": "text",
+          "type": "integer",
           "tooltip": "Helps in limiting response to a specified number of alerts.",
           "description": "(Optional) Maximum number of alerts that you want this operation to return in the response.",
           "required": false,
           "editable": true,
-          "visible": true,
-          "value": ""
+          "visible": true
         },
         {
           "title": "Time Frame",
           "name": "time_frame",
           "type": "text",
           "tooltip": "Specify the time frame to retrieve the alerts from Armis server.",
-          "description": "(Optional) Specify the time frame to retrieve the alerts from Armis server.",
+          "description": "(Optional) Specify the time frame to retrieve the alerts from Armis server. By default time frame is 1 week.",
           "required": false,
           "editable": true,
           "visible": true,
-          "value": ""
+          "placeholder": "10 Days"
         },
         {
           "title": "Alert ID",
           "name": "alert_id",
           "type": "text",
-          "tooltip": "Alert ID to retrieve its details.",
-          "description": "Alert ID to retrieve its details.",
+          "tooltip": "ID of the alert to retrieve its details from the Armis server.",
+          "description": "(Optional) ID of the alert to retrieve its details from the Armis server.",
           "required": false,
           "editable": true,
-          "visible": true,
-          "value": ""
+          "visible": true
         },
         {
           "title": "Risk Level",
@@ -115,8 +113,7 @@
           ],
           "required": false,
           "editable": true,
-          "visible": true,
-          "value": ""
+          "visible": true
         },
         {
           "title": "Status",
@@ -131,15 +128,14 @@
           ],
           "required": false,
           "editable": true,
-          "visible": true,
-          "value": ""
+          "visible": true
         },
         {
           "title": "Alert Type",
           "name": "alert_type",
           "type": "multiselect",
-          "tooltip": "Retrieves the alerts for specified alert type",
-          "description": "(Optional) Retrieves the alerts for specified alert type",
+          "tooltip": "Retrieves the alerts for specified alert type from Armis server.",
+          "description": "(Optional) Retrieves the alerts for specified alert type from Armis server.",
           "options": [
             "Policy Violation",
             "System Policy Violation",
@@ -147,8 +143,7 @@
           ],
           "required": false,
           "editable": true,
-          "visible": true,
-          "value": ""
+          "visible": true
         }
       ]
     },
@@ -168,8 +163,8 @@
           "title": "Alert ID",
           "name": "alert_id",
           "type": "text",
-          "tooltip": "Alert ID to update its status.",
-          "description": "Alert ID to update its status.",
+          "tooltip": "Alert ID to update its status on the Armis server.",
+          "description": "Alert ID to update its status on the Armis server.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -179,8 +174,8 @@
           "title": "Status",
           "name": "status",
           "type": "select",
-          "tooltip": "Status of the alert that you want to retrieve from Armis server.",
-          "description": "(Optional) Status of the alert that you want to retrieve from Armis server.",
+          "tooltip": "Status of the alert that you want to update on Armis server.",
+          "description": "Status of the alert that you want to retrieve from Armis server.",
           "options": [
             "UNHANDLED",
             "SUPPRESSED",
@@ -243,11 +238,11 @@
       ]
     },
     {
-      "operation": "add_tags_to_device",
+      "operation": "add_device_tags",
       "title": "Add Tags to a Device",
-      "description": "Adds tags to a Device.",
+      "description": "Adds tags to a Device based on the device ID.",
       "category": "investigation",
-      "annotation": "add_tags_to_device",
+      "annotation": "add_device_tags",
       "output_schema": {
         "status": "",
         "message": ""
@@ -258,8 +253,8 @@
           "title": "Device ID",
           "name": "device_id",
           "type": "text",
-          "tooltip": "Device ID to which you will add tags to.",
-          "description": "Device ID to which you will add tags to.",
+          "tooltip": "Device ID to which you will add tags to on Armis server.",
+          "description": "Device ID to which you will add tags to on Armis server.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -269,22 +264,22 @@
           "title": "Tags",
           "name": "tags",
           "type": "text",
-          "tooltip": "The list of tags you want to add.",
-          "description": "The list of tags you want to add.",
+          "tooltip": "The comma separated list of tags you want to add to the specified device.",
+          "description": "The comma separated list of tags you want to add to the specified device.",
           "required": true,
           "editable": true,
           "visible": true,
-          "placeholder": "Comma separated name of tags",
+          "placeholder": "Comma separated list of tags",
           "value": ""
         }
       ]
     },
     {
-      "operation": "remove_tags_from_device",
+      "operation": "remove_device_tags",
       "title": "Remove Tags from a Device",
-      "description": "Removes tags from a Device.",
+      "description": "Removes tags from a Device based on the device ID.",
       "category": "investigation",
-      "annotation": "remove_tags_from_device",
+      "annotation": "remove_device_tags",
       "output_schema": {
         "status": "",
         "message": ""
@@ -295,8 +290,8 @@
           "title": "Device ID",
           "name": "device_id",
           "type": "text",
-          "tooltip": "Device ID from which you will remove tags from.",
-          "description": "Device ID from which you will remove tags from.",
+          "tooltip": "Device ID from which you will remove tags from on Armis server.",
+          "description": "Device ID from which you will remove tags from on Armis server.",
           "required": true,
           "editable": true,
           "visible": true,
@@ -306,12 +301,12 @@
           "title": "Tags",
           "name": "tags",
           "type": "text",
-          "tooltip": "The list of tags you want to remove.",
-          "description": "The list of tags you want to remove.",
+          "tooltip": "The comma separated list of tags you want to remove from the specified device.",
+          "description": "The comma separated list of tags you want to remove from the specified device.",
           "required": true,
           "editable": true,
           "visible": true,
-          "placeholder": "Comma separated name of tags",
+          "placeholder": "Comma separated list of tags",
           "value": ""
         }
       ]
@@ -389,8 +384,8 @@
           "title": "Name",
           "name": "name",
           "type": "text",
-          "tooltip": "Device name to retrieve its details.",
-          "description": "(Optional) Device name to retrieve its details.",
+          "tooltip": "Device name to retrieve its details from Armis server.",
+          "description": "(Optional) Device name to retrieve its details from Armis server.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -400,8 +395,8 @@
           "title": "Device ID",
           "name": "device_id",
           "type": "text",
-          "tooltip": "Device ID to retrieve its details.",
-          "description": "(Optional) Device ID to retrieve its details.",
+          "tooltip": "Device ID to retrieve its details from Armis server.",
+          "description": "(Optional) Device ID to retrieve its details from Armis server.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -411,8 +406,8 @@
           "title": "MAC Address",
           "name": "mac_address",
           "type": "text",
-          "tooltip": "Device MAC Address to retrieve its details.",
-          "description": "(Optional) Device MAC Address to retrieve its details.",
+          "tooltip": "Device MAC Address to retrieve its details from Armis server.",
+          "description": "(Optional) Device MAC Address to retrieve its details from Armis server.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -422,8 +417,8 @@
           "title": "IP Address",
           "name": "ip_address",
           "type": "text",
-          "tooltip": "Device IP Address to retrieve its details.",
-          "description": "(Optional) Device IP Address to retrieve its details.",
+          "tooltip": "Device IP Address to retrieve its details from Armis server.",
+          "description": "(Optional) Device IP Address to retrieve its details from Armis server.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -438,19 +433,20 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "placeholder": "Comma separated type of devices",
+          "placeholder": "Comma separated type of devices. Eg: Ip Camera,",
           "value": ""
         },
         {
           "title": "Time Frame",
           "name": "time_frame",
-          "type": "datetime",
+          "type": "text",
           "tooltip": "Specify the time frame to retrieve the devices from Armis server.",
           "description": "(Optional) Specify the time frame to retrieve the devices from Armis server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "value": ""
+          "value": "",
+          "placeholder": "10 Days"
         },
         {
           "title": "Max Devices",
