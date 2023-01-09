@@ -306,7 +306,7 @@
           "required": true,
           "editable": true,
           "visible": true,
-          "placeholder": "Comma separated list of tags",
+          "placeholder": "e.g. Tag1, Tag2",
           "value": ""
         }
       ]
