@@ -70,11 +70,11 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "Max Alerts",
-          "name": "max_alerts",
-          "type": "integer",
-          "tooltip": "Helps in limiting response to a specified number of alerts.",
-          "description": "(Optional) Maximum number of alerts that you want this operation to return in the response.",
+          "title": "Alert ID",
+          "name": "alert_id",
+          "type": "text",
+          "tooltip": "ID of the alert to retrieve its details from the Armis server.",
+          "description": "(Optional) ID of the alert to retrieve its details from the Armis server.",
           "required": false,
           "editable": true,
           "visible": true
@@ -88,17 +88,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "placeholder": "10 Days"
-        },
-        {
-          "title": "Alert ID",
-          "name": "alert_id",
-          "type": "text",
-          "tooltip": "ID of the alert to retrieve its details from the Armis server.",
-          "description": "(Optional) ID of the alert to retrieve its details from the Armis server.",
-          "required": false,
-          "editable": true,
-          "visible": true
+          "placeholder": "e.g. 10 Days"
         },
         {
           "title": "Risk Level",
@@ -141,6 +131,16 @@
             "System Policy Violation",
             "Anomaly Detection"
           ],
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Max Alerts",
+          "name": "max_alerts",
+          "type": "integer",
+          "tooltip": "Helps in limiting response to a specified number of alerts.",
+          "description": "(Optional) Maximum number of alerts that you want this operation to return in the response.",
           "required": false,
           "editable": true,
           "visible": true
@@ -214,23 +214,23 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "Max Alerts",
-          "name": "max_alerts",
-          "type": "text",
-          "tooltip": "Helps in limiting response to a specified number of alerts.",
-          "description": "(Optional) Maximum number of alerts that you want this operation to return in the response.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "value": ""
-        },
-        {
           "title": "Armis Standard Query",
           "name": "query_string",
           "type": "text",
           "tooltip": "Retrieves alerts from the Armis server based on the Armis Standard Query you have specified.",
           "description": "(Optional) Retrieves alerts from the Armis server based on the Armis Standard Query you have specified.",
           "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Max Alerts",
+          "name": "max_alerts",
+          "type": "text",
+          "tooltip": "Helps in limiting response to a specified number of alerts.",
+          "description": "(Optional) Maximum number of alerts that you want this operation to return in the response.",
+          "required": false,
           "editable": true,
           "visible": true,
           "value": ""
@@ -306,7 +306,7 @@
           "required": true,
           "editable": true,
           "visible": true,
-          "placeholder": "Comma separated list of tags",
+          "placeholder": "e.g. Tag1, Tag2",
           "value": ""
         }
       ]
@@ -428,35 +428,12 @@
           "title": "Device Type",
           "name": "device_type",
           "type": "text",
-          "tooltip": "Device types to filter result.",
-          "description": "(Optional) Device types to filter result.",
+          "tooltip": "Comma separated type of devices to retrieve from Armis server.",
+          "description": "(Optional) Type of devices to retrieve from Armis server.",
           "required": false,
           "editable": true,
           "visible": true,
-          "placeholder": "Comma separated type of devices. Eg: Ip Camera,",
-          "value": ""
-        },
-        {
-          "title": "Time Frame",
-          "name": "time_frame",
-          "type": "text",
-          "tooltip": "Specify the time frame to retrieve the devices from Armis server.",
-          "description": "(Optional) Specify the time frame to retrieve the devices from Armis server.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "value": "",
-          "placeholder": "10 Days"
-        },
-        {
-          "title": "Max Devices",
-          "name": "max_devices",
-          "type": "text",
-          "tooltip": "Helps in limiting response to a specified number of devices.",
-          "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
-          "required": false,
-          "editable": true,
-          "visible": true,
+          "placeholder": " e.g. Ip Camera,Plc",
           "value": ""
         },
         {
@@ -470,6 +447,29 @@
             "Medium",
             "Low"
           ],
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Time Frame",
+          "name": "time_frame",
+          "type": "text",
+          "tooltip": "Specify the time frame to retrieve the devices from Armis server.",
+          "description": "(Optional) Specify the time frame to retrieve the devices from Armis server.",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "value": "",
+          "placeholder": "e.g. 10 Days"
+        },
+        {
+          "title": "Max Devices",
+          "name": "max_devices",
+          "type": "text",
+          "tooltip": "Helps in limiting response to a specified number of devices.",
+          "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -538,23 +538,23 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "Max Devices",
-          "name": "max_devices",
-          "type": "text",
-          "tooltip": "Helps in limiting response to a specified number of devices.",
-          "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "value": ""
-        },
-        {
           "title": "Armis Standard Query",
           "name": "query_string",
           "type": "text",
           "tooltip": "Retrieves devices from the Armis server based on the Armis Standard Query you have specified.",
           "description": "(Optional) Retrieves devices from the Armis server based on the Armis Standard Query you have specified.",
           "required": true,
+          "editable": true,
+          "visible": true,
+          "value": ""
+        },
+        {
+          "title": "Max Devices",
+          "name": "max_devices",
+          "type": "text",
+          "tooltip": "Helps in limiting response to a specified number of devices.",
+          "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
+          "required": false,
           "editable": true,
           "visible": true,
           "value": ""
