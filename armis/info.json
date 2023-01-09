@@ -1,10 +1,10 @@
 {
   "name": "armis",
   "label": "Armis",
-  "description": "Armis connector provides protection from cyber threats created by the onslaught of unmanaged and IoT devices. Get alerts and devices, update status of alerts and tag and untag devices.",
+  "description": "Armis connector provides protection from cyber threats created by the onslaught of unmanaged and IoT devices. This connector facilitates operations to get alerts and devices list, update status of alerts, tag and untag devices etc.",
   "category": "Asset Management",
   "version": "1.0.0",
-  "publisher": "Community",
+  "publisher": "Fortinet",
   "cs_approved": false,
   "cs_compatible": true,
   "icon_small_name": "small.png",
@@ -46,7 +46,7 @@
   "operations": [
     {
       "operation": "get_alerts",
-      "title": "Get Alerts",
+      "title": "Get Alerts List",
       "description": "Retrieves a detailed list of alerts from the Armis server based on the search criteria specified.",
       "category": "investigation",
       "annotation": "get_alerts",
@@ -269,7 +269,7 @@
           "required": true,
           "editable": true,
           "visible": true,
-          "placeholder": "Comma separated list of tags",
+          "placeholder": "e.g. Tag1, Tag2",
           "value": ""
         }
       ]
@@ -313,7 +313,7 @@
     },
     {
       "operation": "get_devices",
-      "title": "Get Devices",
+      "title": "Get Devices List",
       "description": "Retrieves a detailed list of devices from the Armis server based on the search criteria specified.",
       "category": "investigation",
       "annotation": "get_devices",

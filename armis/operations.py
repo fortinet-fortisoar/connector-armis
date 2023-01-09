@@ -28,7 +28,7 @@ class Armis:
         updated_headers["accept"] = 'application/json'
         updated_headers["Authorization"] = str(self.token)
         service_endpoint = '{0}{1}'.format(self.server_url, endpoint)
-        logger.info('Request URL {}'.format(service_endpoint))
+        logger.info('Request URL {0}'.format(service_endpoint))
         try:
             response = requests.request(method, service_endpoint, data=str(payload), headers=updated_headers,
                                         params=params, verify=self.verify_ssl)
@@ -42,7 +42,7 @@ class Armis:
                 if response.text != "":
                     err_resp = response.json()
                     if "error" in err_resp:
-                        error_msg = "{}: {}".format(err_resp.get('error').get('code'),
+                        error_msg = "{0}: {1}".format(err_resp.get('error').get('code'),
                                                     err_resp.get('error').get('message'))
                         raise ConnectorError(error_msg)
                 else:
