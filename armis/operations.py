@@ -19,14 +19,12 @@ class Armis:
             self.server_url = 'https://' + self.server_url
         self.verify_ssl = config.get('verify_ssl')
         self.secret = config.get('api_key')
-        self.token = self.token if self.token else None
-        self.exp_time = self.exp_time if self.exp_time else datetime.now(pytz.utc)
 
-    def make_rest_call(self, endpoint, headers=None, params=None, payload=None, method='GET'):
-        self.token = self.get_token()
+    def make_rest_call(self, endpoint, config, headers=None, params=None, payload=None, method='GET'):
+        token = self.get_token(config)
         updated_headers = headers
         updated_headers["accept"] = 'application/json'
-        updated_headers["Authorization"] = str(self.token)
+        updated_headers["Authorization"] = str(token)
         service_endpoint = '{0}{1}'.format(self.server_url, endpoint)
         logger.info('Request URL {0}'.format(service_endpoint))
         try:
@@ -64,14 +62,14 @@ class Armis:
             logger.error('{0}'.format(e))
             raise ConnectorError('{0}'.format(e))
 
-    def get_token(self):
+    def get_token(self, config):
         endpoint = '{0}{1}'.format(self.server_url, '/access_token/')
-        if self.token is None or self.exp_time < datetime.now(pytz.utc):
+        if config.get('token') is None or config.get('exp_time') < datetime.now(pytz.utc):
             resp = (requests.request('POST', endpoint, params={'secret_key': self.secret})).json()
-            self.token = resp.get('data').get('access_token')
-            self.exp_time = datetime.strptime(resp.get('data').get('expiration_utc'), '%Y-%m-%dT%H:%M:%S.%f%z')
+            config["token"] = resp.get('data').get('access_token')
+            config["exp_time"] = datetime.strptime(resp.get('data').get('expiration_utc'), '%Y-%m-%dT%H:%M:%S.%f%z')
 
-        return self.token
+        return config["token"]
 
 
 def get_alerts(config, params):
@@ -101,7 +99,7 @@ def get_alerts(config, params):
     if max_alerts:
         params['length'] = str(max_alerts)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', params=params)
+    return arm.make_rest_call('/search/', config, params=params)
 
 
 def get_devices(config, params):
@@ -141,7 +139,7 @@ def get_devices(config, params):
     if max_devices:
         params['length'] = str(max_devices)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', params=params)
+    return arm.make_rest_call('/search/', config, params=params)
 
 
 def update_alert_status(config, params):
@@ -155,7 +153,7 @@ def update_alert_status(config, params):
     headers = {
         'content-type': 'application/x-www-form-urlencoded'
     }
-    return arm.make_rest_call(endpoint=endpoint, headers=headers, payload=payload, method='PATCH')
+    return arm.make_rest_call(endpoint, config, headers=headers, payload=payload, method='PATCH')
 
 
 def add_device_tags(config, params):
@@ -167,7 +165,7 @@ def add_device_tags(config, params):
     payload = {
         'tags': taglist
     }
-    return arm.make_rest_call(endpoint=endpoint, payload=payload, method='POST')
+    return arm.make_rest_call(endpoint, config, payload=payload, method='POST')
 
 
 def remove_device_tags(config, params):
@@ -179,7 +177,7 @@ def remove_device_tags(config, params):
     payload = {
         'tags': taglist
     }
-    return arm.make_rest_call(endpoint=endpoint, payload=payload, method='DELETE')
+    return arm.make_rest_call(endpoint, config, payload=payload, method='DELETE')
 
 
 def get_alerts_by_asq(config, params):
@@ -190,7 +188,7 @@ def get_alerts_by_asq(config, params):
     if max_alerts:
         params['length'] = str(max_alerts)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', params=params)
+    return arm.make_rest_call('/search/', config, params=params)
 
 
 def get_devices_by_asq(config, params):
@@ -201,12 +199,12 @@ def get_devices_by_asq(config, params):
     if max_devices:
         params['length'] = str(max_devices)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', params=params)
+    return arm.make_rest_call('/search/', config, params=params)
 
 
 def _check_health(config):
     arm = Armis(config)
-    token = arm.get_token()
+    token = arm.get_token(config)
     if token:
         logger.info('connector available')
         return True
