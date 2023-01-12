@@ -104,7 +104,7 @@ def get_alerts(config, params):
 
 def get_devices(config, params):
     arm = Armis(config)
-    name = params.get('name')
+    device_name = params.get('device_name')
     device_id = params.get('device_id')
     mac_address = params.get('mac_address')
     ip_address = params.get('ip_address')
@@ -117,8 +117,8 @@ def get_devices(config, params):
         query_string += f' timeFrame:"{time_frame}"'
     else:
         query_string += f' timeFrame:"7 Days"'
-    if name:
-        query_string += f' name:({name})'
+    if device_name:
+        query_string += f' name:({device_name})'
     if device_id:
         query_string += f' deviceId:({device_id})'
     if mac_address:

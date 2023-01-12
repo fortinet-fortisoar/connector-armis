@@ -83,7 +83,7 @@
           "title": "Time Frame",
           "name": "time_frame",
           "type": "text",
-          "tooltip": "Specify the time frame to retrieve the alerts from Armis server.",
+          "tooltip": "Specify the time frame to retrieve the alerts from Armis server. By default time frame is 1 week.",
           "description": "(Optional) Specify the time frame to retrieve the alerts from Armis server. By default time frame is 1 week.",
           "required": false,
           "editable": true,
@@ -175,7 +175,7 @@
           "name": "status",
           "type": "select",
           "tooltip": "Status of the alert that you want to update on Armis server.",
-          "description": "Status of the alert that you want to retrieve from Armis server.",
+          "description": "Status of the alert that you want to update on Armis server.",
           "options": [
             "UNHANDLED",
             "SUPPRESSED",
@@ -219,15 +219,15 @@
           "type": "text",
           "tooltip": "Retrieves alerts from the Armis server based on the Armis Standard Query you have specified.",
           "description": "(Optional) Retrieves alerts from the Armis server based on the Armis Standard Query you have specified.",
-          "required": true,
+          "required": false,
           "editable": true,
           "visible": true,
-          "value": ""
+          "placeholder": "timeFrame:\"7 Days\""
         },
         {
           "title": "Max Alerts",
           "name": "max_alerts",
-          "type": "text",
+          "type": "integer",
           "tooltip": "Helps in limiting response to a specified number of alerts.",
           "description": "(Optional) Maximum number of alerts that you want this operation to return in the response.",
           "required": false,
@@ -381,8 +381,8 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "Name",
-          "name": "name",
+          "title": "Device Name",
+          "name": "device_name",
           "type": "text",
           "tooltip": "Device name to retrieve its details from Armis server.",
           "description": "(Optional) Device name to retrieve its details from Armis server.",
@@ -467,7 +467,7 @@
         {
           "title": "Max Devices",
           "name": "max_devices",
-          "type": "text",
+          "type": "integer",
           "tooltip": "Helps in limiting response to a specified number of devices.",
           "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
           "required": false,
@@ -543,15 +543,15 @@
           "type": "text",
           "tooltip": "Retrieves devices from the Armis server based on the Armis Standard Query you have specified.",
           "description": "(Optional) Retrieves devices from the Armis server based on the Armis Standard Query you have specified.",
-          "required": true,
+          "required": false,
           "editable": true,
           "visible": true,
-          "value": ""
+          "placeholder": "timeFrame:\"7 Days\""
         },
         {
           "title": "Max Devices",
           "name": "max_devices",
-          "type": "text",
+          "type": "integer",
           "tooltip": "Helps in limiting response to a specified number of devices.",
           "description": "(Optional) Maximum number of devices that you want this operation to return in the response.",
           "required": false,
