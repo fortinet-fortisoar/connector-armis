@@ -22,10 +22,10 @@ class Armis:
 
     def make_rest_call(self, endpoint, config, headers=None, params=None, payload=None, method='GET'):
         token = self.get_token(config)
-        updated_headers = headers
+        updated_headers = headers or {}
         updated_headers["accept"] = 'application/json'
         updated_headers["Authorization"] = str(token)
-        service_endpoint = '{0}{1}'.format(self.server_url, endpoint)
+        service_endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', endpoint)
         logger.info('Request URL {0}'.format(service_endpoint))
         try:
             response = requests.request(method, service_endpoint, data=str(payload), headers=updated_headers,
@@ -63,11 +63,12 @@ class Armis:
             raise ConnectorError('{0}'.format(e))
 
     def get_token(self, config):
-        endpoint = '{0}{1}'.format(self.server_url, '/access_token/')
+        endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', '/access_token/')
+        params = {'secret_key': self.secret}
         if config.get('token') is None or config.get('exp_time') < datetime.now(pytz.utc):
-            resp = (requests.request('POST', endpoint, params={'secret_key': self.secret})).json()
-            config["token"] = resp.get('data').get('access_token')
-            config["exp_time"] = datetime.strptime(resp.get('data').get('expiration_utc'), '%Y-%m-%dT%H:%M:%S.%f%z')
+            resp = (requests.request('POST', endpoint, params=params)).json()
+            config["token"] = resp['data']['access_token']
+            config["exp_time"] = datetime.strptime(resp['data']['expiration_utc'], '%Y-%m-%dT%H:%M:%S.%f%z')
 
         return config["token"]
 
@@ -92,9 +93,9 @@ def get_alerts(config, params):
         query_string += f' riskLevel:{risk_levels}'
     if status:
         statuses = ','.join(status)
-        query_string += f'status:{statuses}'
+        query_string += f' status:{statuses}'
     if alert_type:
-        alert_types = ','.join(status)
+        alert_types = ','.join(alert_type)
         query_string += f' type:{alert_types}'
     if max_alerts:
         params['length'] = str(max_alerts)
@@ -184,10 +185,12 @@ def get_alerts_by_asq(config, params):
     arm = Armis(config)
     query_string = params.get('query_string')
     max_alerts = params.get('max_alerts')
-    query_string = 'in:alerts {}'.format(query_string)
+    query = 'in:alerts'
+    if query_string:
+        query += f' {query_string}'
     if max_alerts:
         params['length'] = str(max_alerts)
-    params['aql'] = query_string
+    params['aql'] = query
     return arm.make_rest_call('/search/', config, params=params)
 
 
@@ -195,10 +198,12 @@ def get_devices_by_asq(config, params):
     arm = Armis(config)
     query_string = params.get('query_string')
     max_devices = params.get('max_devices')
-    query_string = 'in:devices {}'.format(query_string)
+    query = 'in:devices'
+    if query_string:
+        query += f' {query_string}'
     if max_devices:
         params['length'] = str(max_devices)
-    params['aql'] = query_string
+    params['aql'] = query
     return arm.make_rest_call('/search/', config, params=params)
 
 
