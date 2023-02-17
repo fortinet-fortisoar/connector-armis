@@ -2,7 +2,7 @@
   "name": "armis",
   "label": "Armis",
   "description": "Armis connector protects from cyber threats created by the onslaught of unmanaged IoT devices. This connector facilitates operations to get alerts and devices list, update the status of alerts, tag, and untag devices.",
-  "category": "Asset Management",
+  "category": "OT & IoT Security",
   "version": "1.0.0",
   "publisher": "Fortinet",
   "cs_approved": false,
