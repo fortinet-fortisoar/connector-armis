@@ -3,13 +3,17 @@
   "label": "Armis",
   "description": "Armis connector protects from cyber threats created by the onslaught of unmanaged IoT devices. This connector facilitates operations to get alerts and devices list, update the status of alerts, tag, and untag devices.",
   "category": "OT & IoT Security",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "Fortinet",
-  "cs_approved": false,
+  "cs_approved": true,
   "cs_compatible": true,
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/armis/485/armis-v1-0-0",
+  "ingestion_supported": true,
+  "ingestion_modes": [
+    "scheduled"
+  ],
+  "help_online": "",
   "configuration": {
     "fields": [
       {
@@ -83,8 +87,8 @@
           "title": "Time Frame",
           "name": "time_frame",
           "type": "text",
-          "tooltip": "Specify the time frame to retrieve the alerts from the Armis server. By default, the time frame is 1 week.",
-          "description": "(Optional) Specify the time frame to retrieve the alerts from the Armis server. By default, the time frame is 1 week.",
+          "tooltip": "Specify the time frame to retrieve the alerts from the Armis server.",
+          "description": "(Optional) Specify the time frame to retrieve the alerts from the Armis server.",
           "required": false,
           "editable": true,
           "visible": true,
@@ -136,14 +140,24 @@
           "visible": true
         },
         {
-          "title": "Max Alerts",
-          "name": "max_alerts",
-          "type": "integer",
-          "tooltip": "Helps in limiting response to a specified number of alerts.",
-          "description": "(Optional) Specify the maximum count of alerts that you want this operation to return in the response.",
+          "title": "Limit",
           "required": false,
           "editable": true,
-          "visible": true
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "The maximum number of records to return. Default: 10",
+          "description": "Maximum number of records that this operation should return. Default: 10"
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "offset",
+          "tooltip": "The offset of the first item to return. Default: 0",
+          "description": "Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
         }
       ]
     },
@@ -225,15 +239,24 @@
           "placeholder": "timeFrame:\"7 Days\""
         },
         {
-          "title": "Max Alerts",
-          "name": "max_alerts",
-          "type": "integer",
-          "tooltip": "Helps in limiting response to a specified number of alerts.",
-          "description": "(Optional) Specify the maximum count of alerts that you want this operation to return in the response.",
+          "title": "Limit",
           "required": false,
           "editable": true,
           "visible": true,
-          "value": ""
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "The maximum number of records to return. Default: 10",
+          "description": "Maximum number of records that this operation should return. Default: 10"
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "offset",
+          "tooltip": "The offset of the first item to return. Default: 0",
+          "description": "Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
         }
       ]
     },
@@ -325,24 +348,6 @@
                   "category": "",
                   "customProperties": {},
                   "dataSources": [
-                      {
-                          "firstSeen": "",
-                          "lastSeen": "",
-                          "name": "",
-                          "types": []
-                      },
-                      {
-                          "firstSeen": "",
-                          "lastSeen": "",
-                          "name": "",
-                          "types": []
-                      },
-                      {
-                          "firstSeen": "",
-                          "lastSeen": "",
-                          "name": "",
-                          "types": []
-                      },
                       {
                           "firstSeen": "",
                           "lastSeen": "",
@@ -465,15 +470,24 @@
           "placeholder": "e.g. 10 Days"
         },
         {
-          "title": "Max Devices",
-          "name": "max_devices",
-          "type": "integer",
-          "tooltip": "Helps in limiting response to a specified number of devices.",
-          "description": "(Optional) Specify the maximum count of devices that you want this operation to return in the response.",
+          "title": "Limit",
           "required": false,
           "editable": true,
           "visible": true,
-          "value": ""
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "The maximum number of records to return. Default: 10",
+          "description": "Maximum number of records that this operation should return. Default: 10"
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "offset",
+          "tooltip": "The offset of the first item to return. Default: 0",
+          "description": "Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
         }
       ]
     },
@@ -489,18 +503,6 @@
                   "accessSwitch": "",
                   "category": "",
                   "dataSources": [
-                      {
-                          "firstSeen": "",
-                          "lastSeen": "",
-                          "name": "",
-                          "types": []
-                      },
-                      {
-                          "firstSeen": "",
-                          "lastSeen": "",
-                          "name": "",
-                          "types": []
-                      },
                       {
                           "firstSeen": "",
                           "lastSeen": "",
@@ -549,15 +551,81 @@
           "placeholder": "timeFrame:\"7 Days\""
         },
         {
-          "title": "Max Devices",
-          "name": "max_devices",
-          "type": "integer",
-          "tooltip": "Helps in limiting response to a specified number of devices.",
-          "description": "(Optional) Specify the maximum count of devices that you want this operation to return in the response.",
+          "title": "Limit",
           "required": false,
           "editable": true,
           "visible": true,
-          "value": ""
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "The maximum number of records to return. Default: 10",
+          "description": "Maximum number of records that this operation should return. Default: 10"
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "offset",
+          "tooltip": "The offset of the first item to return. Default: 0",
+          "description": "Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
+        }
+      ]
+    },
+    {
+      "operation": "fetch_alerts",
+      "title": "Fetch Alerts",
+      "description": "Retrieves a detailed list of alerts from the Armis server. This action is used for Data Ingestion.",
+      "category": "investigation",
+      "annotation": "fetch_alerts",
+      "output_schema": {
+          "Armis": {
+              "Alert": {
+                  "activityIds": [],
+                  "activityUUIDs": [],
+                  "alertId": "",
+                  "connectionIds": [],
+                  "description": "",
+                  "deviceIds": [],
+                  "severity": "",
+                  "status": "",
+                  "time": "",
+                  "title": "",
+                  "type": ""
+              }
+          }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "start_time",
+          "title": "Start Time",
+          "type": "datetime",
+          "description": "Specify the starting DateTime to only include those items that have been created after the specified timestamp. ",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the starting DateTime to only include those items that have been created after the specified timestamp. "
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limit",
+          "tooltip": "The maximum number of records to return. Default: 10",
+          "description": "Maximum number of records that this operation should return. Default: 10"
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "offset",
+          "tooltip": "The offset of the first item to return. Default: 0",
+          "description": "Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
         }
       ]
     }

@@ -2,448 +2,71 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "facb6903-4699-4b81-ba05-097f7047fefd",
       "@type": "WorkflowCollection",
-      "name": "Sample - Armis - 1.0.0",
-      "description": "Armis connector protects from cyber threats created by the onslaught of unmanaged IoT devices. This connector facilitates operations to get alerts and devices list, update the status of alerts, tag, and untag devices.",
+      "name": "Sample - Armis - 1.1.0",
+      "description": "Sample playbooks for \"Armis\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": null,
+      "image": "data:png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABHNCSVQICAgIfAhkiAAABYBJREFUeF7tmH9sU1UUxw8iMImdJmBctDMzomFT/BVDC4pgZFOZPxKKYWPGpdX9MDCK2RAMbCQ2cwIjbhI1Q7ai2VyN6xIFZuyGbpmBDiIqxs4YE03sTDRiYF2m/+k7d7n19e310dfTmqac+x+v93vvOZ/7PefeMecfZQCPpAnMYYBJsxNCBkjjxwCJ/BggA6QSIOq5BzJAIgGinB3IAIkEiHJ2IAMkEiDK2YEMkEiAKGcHMkAiAaKcHcgAiQSIcnYgAyQSIMrZgQyQSIAoZwcyQCIBopwdyACJBIhydiADJBIgytPmwLadPvgtfB5aujcTQ8xseVoAfn3yB3i54k2ReV3zRli3aWVmUyBEl3KA05G/oWptM/z5+6QIK2fhfHjnxG5YnHcNIczMlaYc4IGGHhjyn47J+O6Vt0FLT3aWckoBnhkOQZOzQ9cu9a0VsNaxPHOtlGRkKQOIpet6yAMXz0/phrLQkgOdn+2Gaxdbkgw1M2UpA9ha3w0n+s8YZmkvXgZ7Dj2fmSSSjColAI1KVxuXu6UMHi1bkWS4mScjA5ya/AuqHm6GC39EDLO7oeA6WHR9LuRctQB2vlEJWNLZMMgA97rfg+GPvzRk8Wx9KZRvKckGXrNyIAFMpHSX2W6Bfb6tWQkPk0oaYOTCtHgwx7t1cfF58+fCoaFdkJe/iAFqCby65QiMHv/KEExlQymUbc7O0pWJJ+XAk4Fz4KnpNIR306158NbADph75RUZ677QdyGIRCJgs9uSjtE0QCxd1xoPTF2cNtz04NEGWHJHfnRO8FQQ+vv6YN+B1lm6TRvL4PTYWMx3S24uOF0u2LrNHf1eW1Wt/HsbFN1eFHfvxx9bB8c+GYj+vqTgZlhus8H7H/ii39pfb4MjXi9EJmf+XsdRXFICuxobwZpvNQXTNMBXag7DqcC3hps85VwNtU3rY+ZISMOjo7OClL9VOp2Qq4DD4Vdg/zoxAXv37wfH0xvEN5w3oXw7OnA8Ok+9yUv1DdDv98OPP/8UFyAe5DPl5XC1xQKODTPrDgYCYq+3Ozqg+BFzLccUwJFjZ+G1uncN4eH/uhz+vBEW5MyLcR8GjWO9wzHLhRKgOvHwL2FYs2pVjHvkPJvdDj2+3pg4/B/2wY7t28U3I4DovoPt7TEHgxoEa19hN+U+nGwK4EfeEYhconTvW10IS+8p0HUfnvqU0nO0LtQDOKmU17133qULEBdHtzbuaRL7YC97srQ0uqcRQAlatgg8jP+1B5o9Ilky2IewZNAlWhdKgD2+//oUljD2TPVcba/E8kYATyjw1P3MCCDGj710aHAwJhXsgXVut2F/1cvdlAPNwsP5Munu3l5RIg/e/4DoN2oX6l0iqF1aWCiav+yLch42+/a2NuHmG61WmAiHRfJjwaC4jC4FENfGFoG9bzwUgqCiw5hwrZEvRk2lmVaA0n0YEd6eOGTQes5CCDi8XV2GpY6HgY57oaZGzJdr6bUCvVtYjxDe3t+Pj8PZc9/oXlDxqKYVYDxnyWCkC7WJezu7oNnjEeWpviy0bsZ+hrClSxMBiP2yQrnQ8ImE4PHZggeNh4GHonZvIlZMG0B171O/wTAo+ZuRc2SfQle6X5xxrxagNsFEAOLetdXVwuHaob6YEoGHc9IKEHsSNme9hy+6DG9ahINOCit9TILCwPA3nINDfh/8NAAhpWc5n3PplpneOvhssSq9Tb4l5dq4FsaH+xYWFYk40/6MSfRULqd5aXPg5QKRARJPmgEyQCIBopwdyACJBIhydiADJBIgytmBDJBIgChnBzJAIgGinB3IAIkEiHJ2IAMkEiDK2YEMkEiAKGcHMkAiAaKcHcgAiQSIcnYgAyQSIMrZgQyQSIAoZwcSAf4LDOaOPnnwDXIAAAAASUVORK5CYII=",
+      "uuid": "077bf554-fd88-4e0c-b101-6326208de1d2",
+      "id": 208,
+      "deletedAt": null,
+      "importedBy": [],
       "recordTags": [
         "Armis"
       ],
       "workflows": [
         {
           "@type": "Workflow",
-          "uuid": "f6390069-1828-495d-b3b0-a43fc6b55efc",
-          "collection": "/api/3/workflow_collections/facb6903-4699-4b81-ba05-097f7047fefd",
           "triggerLimit": null,
-          "description": "Retrieves a detailed list of alerts from the Armis server based on filters like Alert ID, Time Frame, Risk level, and other criteria that you have specified.",
-          "name": "Get Alerts List",
-          "tag": "#Armis",
-          "recordTags": [
-            "Armis"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/14e9d362-6af9-4bf3-8a0d-b74916eeba14",
-          "steps": [
-            {
-              "uuid": "14e9d362-6af9-4bf3-8a0d-b74916eeba14",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "312b44ec-6b48-4278-9df6-43bcd6fed2dd",
-                "title": "Armis: Get Alerts List",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "a54ce8e7-723e-4947-80ea-00c2494fd911",
-              "@type": "WorkflowStep",
-              "name": "Get Alerts List",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Armis",
-                "config": "''",
-                "params": [],
-                "version": "1.0.0",
-                "connector": "armis",
-                "operation": "get_alerts",
-                "operationTitle": "Get Alerts List",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "a5bd8dae-98bb-4872-bd76-45acf9b733f2",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get Alerts List",
-              "sourceStep": "/api/3/workflow_steps/14e9d362-6af9-4bf3-8a0d-b74916eeba14",
-              "targetStep": "/api/3/workflow_steps/a54ce8e7-723e-4947-80ea-00c2494fd911"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "bb8a5beb-0133-4e35-a131-c770c496936d",
-          "collection": "/api/3/workflow_collections/facb6903-4699-4b81-ba05-097f7047fefd",
-          "triggerLimit": null,
-          "description": "Updates the status of a specific alert on the Armis server based on the alert ID and the alert status that you have specified.",
-          "name": "Update Alert Status",
-          "tag": "#Armis",
-          "recordTags": [
-            "Armis"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/1dd0559c-055b-463c-ae0e-06d88f30ea2b",
-          "steps": [
-            {
-              "uuid": "1dd0559c-055b-463c-ae0e-06d88f30ea2b",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "4721c3d0-5235-4d3a-ae83-4f43f1b1108b",
-                "title": "Armis: Update Alert Status",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "fa51a12e-8ade-464c-8179-b8343e842a8f",
-              "@type": "WorkflowStep",
-              "name": "Update Alert Status",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Armis",
-                "config": "''",
-                "params": {
-                  "alert_id": "",
-                  "status": ""
-                },
-                "version": "1.0.0",
-                "connector": "armis",
-                "operation": "update_alert_status",
-                "operationTitle": "Update Alert Status",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "99ae5953-cdae-47e1-bf0c-ab33a7664d7e",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Update Alert Status",
-              "sourceStep": "/api/3/workflow_steps/1dd0559c-055b-463c-ae0e-06d88f30ea2b",
-              "targetStep": "/api/3/workflow_steps/fa51a12e-8ade-464c-8179-b8343e842a8f"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "d5c459f8-53e1-4c35-bd0d-57eabea101c5",
-          "collection": "/api/3/workflow_collections/facb6903-4699-4b81-ba05-097f7047fefd",
-          "triggerLimit": null,
-          "description": "Retrieves a detailed list of alerts from the Armis server based on the Armis Standard Query that you have specified.",
-          "name": "Get Alerts By Armis Standard Query",
-          "tag": "#Armis",
-          "recordTags": [
-            "Armis"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/9267c62d-6323-410f-a0a6-9c66a34affca",
-          "steps": [
-            {
-              "uuid": "9267c62d-6323-410f-a0a6-9c66a34affca",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "6f7e199f-f9b3-4718-a388-5bfe10203bac",
-                "title": "Armis: Get Alerts By Armis Standard Query",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "12e5aeac-6db9-4c4a-a9c3-3c0ace7e2051",
-              "@type": "WorkflowStep",
-              "name": "Get Alerts By Armis Standard Query",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Armis",
-                "config": "''",
-                "params": {
-                  "max_alerts": ""
-                },
-                "version": "1.0.0",
-                "connector": "armis",
-                "operation": "get_alerts_by_asq",
-                "operationTitle": "Get Alerts By Armis Standard Query",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "d44eec90-07ec-41ee-83a9-2f588fdf3c44",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Get Alerts By Armis Standard Query",
-              "sourceStep": "/api/3/workflow_steps/9267c62d-6323-410f-a0a6-9c66a34affca",
-              "targetStep": "/api/3/workflow_steps/12e5aeac-6db9-4c4a-a9c3-3c0ace7e2051"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "748a1bcc-43a5-4785-b08c-118c1a4f8e27",
-          "collection": "/api/3/workflow_collections/facb6903-4699-4b81-ba05-097f7047fefd",
-          "triggerLimit": null,
-          "description": "Adds tags to a Device based on the device ID and tag name that you have specified.",
-          "name": "Add Tags to a Device",
-          "tag": "#Armis",
-          "recordTags": [
-            "Armis"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/a9964f27-686f-4053-a117-a484a9a9b638",
-          "steps": [
-            {
-              "uuid": "a9964f27-686f-4053-a117-a484a9a9b638",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "8af9f840-0434-43a4-bac8-8a4f78e74b68",
-                "title": "Armis: Add Tags to a Device",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "92da3d6d-3e99-4609-bfce-4f9a953dc72a",
-              "@type": "WorkflowStep",
-              "name": "Add Tags to a Device",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Armis",
-                "config": "''",
-                "params": {
-                  "device_id": "",
-                  "tags": ""
-                },
-                "version": "1.0.0",
-                "connector": "armis",
-                "operation": "add_device_tags",
-                "operationTitle": "Add Tags to a Device",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "51b50fea-61c7-481d-b206-e526cdca6532",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Add Tags to a Device",
-              "sourceStep": "/api/3/workflow_steps/a9964f27-686f-4053-a117-a484a9a9b638",
-              "targetStep": "/api/3/workflow_steps/92da3d6d-3e99-4609-bfce-4f9a953dc72a"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "eedfd486-7bc5-4830-8fe7-ffa859ea642c",
-          "collection": "/api/3/workflow_collections/facb6903-4699-4b81-ba05-097f7047fefd",
-          "triggerLimit": null,
-          "description": "Removes tags from a Device based on the device ID and tag name that you have specified.",
-          "name": "Remove Tags from a Device",
-          "tag": "#Armis",
-          "recordTags": [
-            "Armis"
-          ],
-          "isActive": false,
-          "debug": false,
-          "singleRecordExecution": false,
-          "parameters": [],
-          "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/52834e2e-29c4-4cd2-b38a-bad3e5373144",
-          "steps": [
-            {
-              "uuid": "52834e2e-29c4-4cd2-b38a-bad3e5373144",
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "route": "98520c25-6399-4ce7-9630-cf310ffdd64f",
-                "title": "Armis: Remove Tags from a Device",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "singleRecordExecution": false,
-                "noRecordExecution": true,
-                "executeButtonText": "Execute"
-              },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "26de3e77-04b9-412f-a393-c3ddf24ef49f",
-              "@type": "WorkflowStep",
-              "name": "Remove Tags from a Device",
-              "description": null,
-              "status": null,
-              "arguments": {
-                "name": "Armis",
-                "config": "''",
-                "params": {
-                  "device_id": "",
-                  "tags": ""
-                },
-                "version": "1.0.0",
-                "connector": "armis",
-                "operation": "remove_device_tags",
-                "operationTitle": "Remove Tags from a Device",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
-            }
-          ],
-          "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "uuid": "16ca862d-ef8b-451c-9aec-a3fa0161c4d1",
-              "label": null,
-              "isExecuted": false,
-              "name": "Start-> Remove Tags from a Device",
-              "sourceStep": "/api/3/workflow_steps/52834e2e-29c4-4cd2-b38a-bad3e5373144",
-              "targetStep": "/api/3/workflow_steps/26de3e77-04b9-412f-a393-c3ddf24ef49f"
-            }
-          ]
-        },
-        {
-          "@type": "Workflow",
-          "uuid": "2f3e068d-86e3-4735-8f23-0364c3403fe4",
-          "collection": "/api/3/workflow_collections/facb6903-4699-4b81-ba05-097f7047fefd",
-          "triggerLimit": null,
-          "description": "Retrieves a detailed list of devices from the Armis server based on the filters like device name, device ID, MAC address, and other criteria that you have specified.",
           "name": "Get Devices List",
+          "aliasName": null,
           "tag": "#Armis",
-          "recordTags": [
-            "Armis"
-          ],
+          "description": "Retrieves a detailed list of devices from the Armis server based on the filters like device name, device ID, MAC address, and other criteria that you have specified.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/7fdd69ad-7ef3-463e-af86-30a3c09ef23d",
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a2eb2c47-5b3c-480b-a58f-985e2e609884",
           "steps": [
             {
-              "uuid": "7fdd69ad-7ef3-463e-af86-30a3c09ef23d",
+              "@type": "WorkflowStep",
+              "name": "Get Devices List",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "''",
+                "params": {
+                  "device_id": "",
+                  "ip_address": "",
+                  "risk_level": "",
+                  "time_frame": "",
+                  "device_name": "",
+                  "device_type": "",
+                  "mac_address": ""
+                },
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "get_devices",
+                "operationTitle": "Get Devices List"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2bef45cd-1119-4351-804a-b0b84bd2ea72"
+            },
+            {
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
-              "status": null,
               "arguments": {
-                "route": "a4714c5e-5447-4101-ac3a-9a6cb7c9b6f0",
+                "route": "f8155b9c-1f1a-4a2c-9385-9401fad99ae4",
                 "title": "Armis: Get Devices List",
                 "resources": [
                   "alerts"
@@ -454,84 +77,559 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false,
+                "executeButtonText": "Execute",
                 "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                "singleRecordExecution": false
               },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "d4d76504-fd3f-405b-98c0-298b10320328",
-              "@type": "WorkflowStep",
-              "name": "Get Devices List",
-              "description": null,
               "status": null,
-              "arguments": {
-                "name": "Armis",
-                "config": "''",
-                "params": {
-                  "device_name": "",
-                  "device_id": "",
-                  "mac_address": "",
-                  "ip_address": "",
-                  "device_type": "",
-                  "risk_level": "",
-                  "time_frame": "",
-                  "max_devices": ""
-                },
-                "version": "1.0.0",
-                "connector": "armis",
-                "operation": "get_devices",
-                "operationTitle": "Get Devices List",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "a2eb2c47-5b3c-480b-a58f-985e2e609884"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "a7506ed6-e2a1-40bb-805d-2b049231d24f",
+              "name": "Start-> Get Devices List",
+              "targetStep": "/api/3/workflow_steps/2bef45cd-1119-4351-804a-b0b84bd2ea72",
+              "sourceStep": "/api/3/workflow_steps/a2eb2c47-5b3c-480b-a58f-985e2e609884",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Get Devices List",
-              "sourceStep": "/api/3/workflow_steps/7fdd69ad-7ef3-463e-af86-30a3c09ef23d",
-              "targetStep": "/api/3/workflow_steps/d4d76504-fd3f-405b-98c0-298b10320328"
+              "uuid": "460cfbdc-09cc-44fd-a021-c227ca58156c"
             }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "036c9465-9958-462f-86ab-57bfdda983a0",
+          "id": 2195,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Armis"
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "f0624a00-45f4-4808-82b8-94cf09a16ac3",
-          "collection": "/api/3/workflow_collections/facb6903-4699-4b81-ba05-097f7047fefd",
           "triggerLimit": null,
-          "description": "Retrieves a detailed list of devices from the Armis server based on the Armis Standard Query that you have specified.",
-          "name": "Get Devices By Armis Standard Query",
-          "tag": "#Armis",
-          "recordTags": [
-            "Armis"
-          ],
+          "name": "Armis > Ingest",
+          "aliasName": null,
+          "tag": "#armis #ingest #dataingestion #create",
+          "description": "Fetch Alerts from Armis and Creates records in FortiSOAR.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/840cc6be-c9a9-4e59-81ce-3ce57567fc08",
+          "lastModifyDate": 1679322840,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/38553caf-c148-4eda-b35a-f34c641da124",
           "steps": [
             {
-              "uuid": "840cc6be-c9a9-4e59-81ce-3ce57567fc08",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
-              "status": null,
               "arguments": {
-                "route": "698e441f-8b8b-4486-83ce-17e1fda2e162",
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "38553caf-c148-4eda-b35a-f34c641da124"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Last Pull Time",
+              "description": null,
+              "arguments": {
+                "config": "32a9a084-8135-41bb-8649-569c45d80505",
+                "params": {
+                  "macro": "{{vars.steps.Fetch_and_Create.macro_name}}",
+                  "value": "{{vars.steps.Fetch_and_Create.updated_last_pull_time}}"
+                },
+                "version": "3.2.3",
+                "connector": "cyops_utilities",
+                "operation": "updatemacro",
+                "operationTitle": "CyOPs: Update Macro",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "group": null,
+              "uuid": "cee46d0f-4d90-4e0d-856c-a1005bd9e1a3"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Fetch and Create",
+              "description": null,
+              "arguments": {
+                "arguments": [],
+                "apply_async": false,
+                "step_variables": [],
+                "pass_input_record": true,
+                "workflowReference": "/api/3/workflows/da07b440-bea3-4aa8-9f7e-0db8a5625f42"
+              },
+              "status": null,
+              "top": "160",
+              "left": "120",
+              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+              "group": null,
+              "uuid": "e9d18a57-075b-4677-8730-fd030dab48f3"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Fetch Alerts",
+              "targetStep": "/api/3/workflow_steps/e9d18a57-075b-4677-8730-fd030dab48f3",
+              "sourceStep": "/api/3/workflow_steps/38553caf-c148-4eda-b35a-f34c641da124",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "3b905ee0-1a18-4667-8c71-1a412dd1edb0"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Fetch and Create -> Update Last Alert Fetch Macro",
+              "targetStep": "/api/3/workflow_steps/cee46d0f-4d90-4e0d-856c-a1005bd9e1a3",
+              "sourceStep": "/api/3/workflow_steps/e9d18a57-075b-4677-8730-fd030dab48f3",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "442e32d3-3dfa-4b7d-a960-d39aa075f337"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "145afb01-efc8-4ef2-a8e3-e62782eb6214",
+          "id": 2198,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "dataingestion",
+            "ingest",
+            "Armis"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Remove Tags from a Device",
+          "aliasName": null,
+          "tag": "#Armis",
+          "description": "Removes tags from a Device based on the device ID and tag name that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/f702ea10-97b6-44ee-9e91-9d6fc42f7354",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Remove Tags from a Device",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "''",
+                "params": {
+                  "tags": "",
+                  "device_id": ""
+                },
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "remove_device_tags",
+                "operationTitle": "Remove Tags from a Device"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "db18160b-9838-45fc-8d9e-60a5968ccd31"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "2e2138ea-499f-4f2e-bd04-55e334922d20",
+                "title": "Armis: Remove Tags from a Device",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "f702ea10-97b6-44ee-9e91-9d6fc42f7354"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Remove Tags from a Device",
+              "targetStep": "/api/3/workflow_steps/db18160b-9838-45fc-8d9e-60a5968ccd31",
+              "sourceStep": "/api/3/workflow_steps/f702ea10-97b6-44ee-9e91-9d6fc42f7354",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "300fa645-31bf-488d-bef1-597f610e7be8"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "151a9afa-01cd-43a8-9a9f-4fa8850ae7e9",
+          "id": 2194,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Armis"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alerts List",
+          "aliasName": null,
+          "tag": "#Armis",
+          "description": "Retrieves a detailed list of alerts from the Armis server based on filters like Alert ID, Time Frame, Risk level, and other criteria that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/e44dca25-3560-465a-9b0e-1bcb010cb86b",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alerts List",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "get_alerts",
+                "operationTitle": "Get Alerts List"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "3c522356-df8e-4a25-90fe-40c2c9da54c7"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "f77b7ef5-019f-41bb-ad7e-16a02b55656c",
+                "title": "Armis: Get Alerts List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "e44dca25-3560-465a-9b0e-1bcb010cb86b"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Alerts List",
+              "targetStep": "/api/3/workflow_steps/3c522356-df8e-4a25-90fe-40c2c9da54c7",
+              "sourceStep": "/api/3/workflow_steps/e44dca25-3560-465a-9b0e-1bcb010cb86b",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "3666a13b-a539-4813-9b77-20e56b8f0824"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "1d335786-c935-4516-a66c-a9e03d9ec344",
+          "id": 2190,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Armis"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Add Tags to a Device",
+          "aliasName": null,
+          "tag": "#Armis",
+          "description": "Adds tags to a Device based on the device ID and tag name that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/4978dce3-8f8f-4046-8eb6-95c02e5d51e6",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "c70a87b2-3fac-449a-9812-5c3925c69d39",
+                "title": "Armis: Add Tags to a Device",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "4978dce3-8f8f-4046-8eb6-95c02e5d51e6"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Add Tags to a Device",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "''",
+                "params": {
+                  "tags": "",
+                  "device_id": ""
+                },
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "add_device_tags",
+                "operationTitle": "Add Tags to a Device"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "56874047-f5c6-4a13-83c5-66e6b30e9f49"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Add Tags to a Device",
+              "targetStep": "/api/3/workflow_steps/56874047-f5c6-4a13-83c5-66e6b30e9f49",
+              "sourceStep": "/api/3/workflow_steps/4978dce3-8f8f-4046-8eb6-95c02e5d51e6",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "44c22545-f049-4466-ba8e-691eb1b2cae0"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "22bb8b3e-a3e6-48d4-a19a-db422cb4c43d",
+          "id": 2193,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Armis"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alerts By Armis Standard Query",
+          "aliasName": null,
+          "tag": "#Armis",
+          "description": "Retrieves a detailed list of alerts from the Armis server based on the Armis Standard Query that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/37a1f9de-1549-45d0-94f1-4eb336dcdbe7",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "54f23a5b-fa28-4d24-a095-16637517dcbf",
+                "title": "Armis: Get Alerts By Armis Standard Query",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "37a1f9de-1549-45d0-94f1-4eb336dcdbe7"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alerts By Armis Standard Query",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "get_alerts_by_asq",
+                "operationTitle": "Get Alerts By Armis Standard Query"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "fc03dc86-a0f0-4714-8f37-cc64dd2b42e4"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Alerts By Armis Standard Query",
+              "targetStep": "/api/3/workflow_steps/fc03dc86-a0f0-4714-8f37-cc64dd2b42e4",
+              "sourceStep": "/api/3/workflow_steps/37a1f9de-1549-45d0-94f1-4eb336dcdbe7",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "6d1ba922-b317-4d70-bec1-c6a9c3a3ed41"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "4aeef7bf-824f-420d-af8d-7d14f4c852ac",
+          "id": 2192,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Armis"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Devices By Armis Standard Query",
+          "aliasName": null,
+          "tag": "#Armis",
+          "description": "Retrieves a detailed list of devices from the Armis server based on the Armis Standard Query that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/819b658e-82ae-478c-a66a-a9443a63adba",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Devices By Armis Standard Query",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "get_devices_by_asq",
+                "operationTitle": "Get Devices By Armis Standard Query"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "5bb515e2-1507-4383-8146-b9f599c48f3e"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "684ff8b0-ee67-464f-883b-b1d8f8ceb038",
                 "title": "Armis: Get Devices By Armis Standard Query",
                 "resources": [
                   "alerts"
@@ -542,52 +640,565 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false,
+                "executeButtonText": "Execute",
                 "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                "singleRecordExecution": false
               },
-              "left": "20",
-              "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
-            },
-            {
-              "uuid": "af06fb97-1934-4e8c-a1ae-81dbac91683d",
-              "@type": "WorkflowStep",
-              "name": "Get Devices By Armis Standard Query",
-              "description": null,
               "status": null,
-              "arguments": {
-                "name": "Armis",
-                "config": "''",
-                "params": {
-                  "max_devices": ""
-                },
-                "version": "1.0.0",
-                "connector": "armis",
-                "operation": "get_devices_by_asq",
-                "operationTitle": "Get Devices By Armis Standard Query",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "left": "188",
-              "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "819b658e-82ae-478c-a66a-a9443a63adba"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "b6d5469b-97b6-49db-91a7-fcd6d5ce88d0",
+              "name": "Start-> Get Devices By Armis Standard Query",
+              "targetStep": "/api/3/workflow_steps/5bb515e2-1507-4383-8146-b9f599c48f3e",
+              "sourceStep": "/api/3/workflow_steps/819b658e-82ae-478c-a66a-a9443a63adba",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Get Devices By Armis Standard Query",
-              "sourceStep": "/api/3/workflow_steps/840cc6be-c9a9-4e59-81ce-3ce57567fc08",
-              "targetStep": "/api/3/workflow_steps/af06fb97-1934-4e8c-a1ae-81dbac91683d"
+              "uuid": "c1364f39-7af3-45d2-880d-0d16f3b4ffcf"
             }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "b79a9888-7720-4c3e-b4bf-ec68d4d4db97",
+          "id": 2196,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Armis"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Armis > Fetch and Create",
+          "aliasName": null,
+          "tag": "#armis #fetch #dataingestion",
+          "description": "Fetch Alerts from Armis.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1679378269,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/362d3883-e13b-4de7-aef8-bd133270aded",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": {
+                "limit": "10000",
+                "offset": "",
+                "pullTimeMacro": "ArmisLastPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}",
+                "alerts_status_map": "{'Unhandled': {{'AlertStatus'| picklist('Open') }},'Suppressed': {{'AlertStatus'| picklist('Pending') }}, 'Resolved': {{'AlertStatus'| picklist('Closed') }}}",
+                "alerts_severity_map": "{'Low': {{'Severity'| picklist('Low') }}, 'Medium': {{'Severity'| picklist('Medium') }}, 'High': {{'Severity'| picklist('High') }}}",
+                "fetch_alerts_in_last_X_minutes": 1440
+              },
+              "status": null,
+              "top": "160",
+              "left": "100",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "1bb666ed-e779-4fd9-9700-985fe2902cf7"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Fetch Armis Alerts",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "4adfa992-d9fa-496a-9347-d7718ac5f2de",
+                "params": {
+                  "limit": "{{vars.limit}}",
+                  "offset": "{{vars.offset}}",
+                  "start_time": "{{vars.last_pull_time}}"
+                },
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "fetch_alerts",
+                "operationTitle": "Fetch Alerts",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "660",
+              "left": "500",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "1c775470-3d7d-4b03-a107-0da22b8ba534"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Is Data Only For mapping",
+              "description": null,
+              "arguments": {
+                "conditions": [
+                  {
+                    "option": "Yes, For Mapping",
+                    "step_iri": "/api/3/workflow_steps/6842a17b-37bf-45e9-a1df-5023153850c0",
+                    "condition": "{{ vars.request.env_setup == true }}",
+                    "step_name": "Return Sample Data"
+                  },
+                  {
+                    "option": "No, For Ingestion",
+                    "default": true,
+                    "step_iri": "/api/3/workflow_steps/1c775470-3d7d-4b03-a107-0da22b8ba534",
+                    "step_name": "Fetch Armis Alerts"
+                  }
+                ]
+              },
+              "status": null,
+              "top": "520",
+              "left": "100",
+              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+              "group": null,
+              "uuid": "20bd2738-5fbc-49ff-8960-07e2786f96a1"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  },
+                  "_configuration_schema": "[\n  {\n    \"title\": \"Pull Alerts Created in Last X min\",\n    \"required\": true,\n    \"editable\": true,\n    \"visible\": true,\n    \"type\": \"integer\",\n    \"name\": \"fetch_alerts_in_last_X_minutes\"\n  },\n  {\n          \"title\": \"Limit\",\n          \"required\": false,\n          \"editable\": true,\n          \"visible\": true,\n          \"type\": \"integer\",\n          \"name\": \"limit\",\n          \"tooltip\": \"The maximum number of records to return. Default: 10\",\n          \"description\": \"Maximum number of records that this operation should return. Default: 10\"\n        },\n        {\n          \"title\": \"Offset\",\n          \"required\": false,\n          \"editable\": true,\n          \"visible\": true,\n          \"type\": \"integer\",\n          \"name\": \"offset\",\n          \"tooltip\": \"The offset of the first item to return. Default: 0\",\n          \"description\": \"Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0.\"\n        }\n]"
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "100",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "362d3883-e13b-4de7-aef8-bd133270aded"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Create Record",
+              "description": null,
+              "arguments": {
+                "config": "7589528d-2589-4576-bb8f-4c651224751a",
+                "version": "1.0.1",
+                "for_each": {
+                  "item": "{{vars.record_data}}",
+                  "__bulk": true,
+                  "parallel": false,
+                  "condition": "",
+                  "batch_size": 100
+                },
+                "resource": {
+                  "name": "{{vars.item[\"type\"]}} : {{vars.item[\"title\"]}}",
+                  "type": "/api/3/picklists/574a6ee2-7265-4701-815e-cff83b053bce",
+                  "state": "/api/3/picklists/a1bac09b-1441-45aa-ad1b-c88744e48e72",
+                  "source": "Armis",
+                  "status": "{{vars.item.status | resolveRange(vars.alerts_status_map)}}",
+                  "severity": "{{vars.item.severity | resolveRange(vars.alerts_severity_map)}}",
+                  "sourceId": "{{vars.item[\"alertId\"]}}",
+                  "__replace": "true",
+                  "sourcedata": "{{vars.item | toJSON }}",
+                  "description": "{{vars.item[\"description\"]}}\n",
+                  "ackSlaStatus": "/api/3/picklists/72979f64-e8b9-4888-a965-957e0ec24818",
+                  "respSlaStatus": "/api/3/picklists/72979f64-e8b9-4888-a965-957e0ec24818",
+                  "priorityWeight": 1,
+                  "escalatedtoincident": "/api/3/picklists/2128a09c-153d-4db3-985d-de6be33deae5",
+                  "alertRemainingAckSLA": 0
+                },
+                "operation": "Overwrite",
+                "collection": "/api/3/upsert/alerts",
+                "__recommend": [],
+                "fieldOperation": {
+                  "recordTags": "Overwrite"
+                },
+                "step_variables": []
+              },
+              "status": null,
+              "top": "660",
+              "left": "1120",
+              "stepType": "/api/3/workflow_step_types/2597053c-e718-44b4-8394-4d40fe26d357",
+              "group": null,
+              "uuid": "521b0253-c32c-4e73-826e-2041788a120e"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Return Sample Data",
+              "description": null,
+              "arguments": {
+                "data": "[\n            {\n                \"activityUUIDs\": [\n                    \"ilPcx4YBAAAAAFMnCIRp\",\n                    \"i1Pcx4YBAAAAAFMnCIRp\",\n                    \"jFPcx4YBAAAAAFMnCIRp\"\n                ],\n                \"alertId\": 118,\n                \"connectionIds\": [],\n                \"description\": \"A medical device has been detected having experienced multiple weak signal events. A weak signal on wireless medical devices can impact operations and patient care by network interruptions and delay in communication ofpatient care information.\\n\\nRecommended remediation actions include:\\n\\n* Ensure the medical device is located in the appropriate areas of the unit.\\n\\n* Ensure the medical device is not experiencing interference with surrounding equipment.\\n\\n* Confirm there is adequate wireless coverage of the area in which the medical device is operating. If issues persist, additional equipment may be required on the clinical unit to extend wireless signal strength.\",\n                \"deviceIds\": [\n                    1,\n                    1994\n                ],\n                \"severity\": \"Medium\",\n                \"status\": \"Unhandled\",\n                \"time\": \"2023-03-10T00:28:24.823935+00:00\",\n                \"title\": \"[Operations] Weak Wireless Signals Detected on Medical Device\",\n                \"type\": \"System Policy Violation\"\n            }\n        ]"
+              },
+              "status": null,
+              "top": "360",
+              "left": "480",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "6842a17b-37bf-45e9-a1df-5023153850c0"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Macro Value",
+              "description": null,
+              "arguments": {
+                "params": {
+                  "iri": "/api/wf/api/dynamic-variable/?name={{vars.pullTimeMacro}}",
+                  "body": "",
+                  "method": "GET"
+                },
+                "version": "3.2.3",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "280",
+              "left": "100",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
+              "group": null,
+              "uuid": "97687d08-f4c3-4e53-95ed-92b08fdf9324"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Set Result",
+              "description": null,
+              "arguments": {
+                "macro_name": "{{vars.pullTimeMacro}}",
+                "updated_last_pull_time": "{{vars.current_timestamp}}"
+              },
+              "status": null,
+              "top": "660",
+              "left": "1460",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "e63cb5e7-5011-416b-89a9-2508cc950385"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Record List",
+              "description": null,
+              "arguments": {
+                "record_data": "{% if (vars.steps.Fetch_Armis_Alerts.data.data.results)|type_debug=='list'%}{{vars.steps.Fetch_Armis_Alerts.data.data.results}}{% else %}[]{% endif %}"
+              },
+              "status": null,
+              "top": "660",
+              "left": "800",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "f0c7a849-6dd2-40e6-85e8-f88dfd319695"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Extract Value From Response",
+              "description": null,
+              "arguments": {
+                "last_pull_time": "{% if (vars.steps.Get_Macro_Value.data[\"hydra:member\"] | length) < 1%}{{arrow.utcnow().shift(minutes=-vars.fetch_alerts_in_last_X_minutes).format('YYYY-MM-DDTHH:mm:ss.ssss')}}Z{% else %}{{vars.steps.Get_Macro_Value.data['hydra:member'][0]['value']}}{% endif %}",
+                "current_timestamp": "{{arrow.get(arrow.utcnow().timestamp).strftime('%Y-%m-%dT%H:%M:%S.%fZ')}}"
+              },
+              "status": null,
+              "top": "400",
+              "left": "100",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "f18bf975-cf6d-4d17-95d8-bb294c1f4d98"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Extract Value From Response -> Is Data Only For mapping",
+              "targetStep": "/api/3/workflow_steps/20bd2738-5fbc-49ff-8960-07e2786f96a1",
+              "sourceStep": "/api/3/workflow_steps/f18bf975-cf6d-4d17-95d8-bb294c1f4d98",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "00133505-b34c-43ff-9227-fe33eee68fbb"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Is Data Only For mapping -> Fetch Armis Alerts",
+              "targetStep": "/api/3/workflow_steps/1c775470-3d7d-4b03-a107-0da22b8ba534",
+              "sourceStep": "/api/3/workflow_steps/20bd2738-5fbc-49ff-8960-07e2786f96a1",
+              "label": "No, For Ingestion",
+              "isExecuted": false,
+              "uuid": "1e8b0e83-bc22-453d-ba10-cce3d720ddb2"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Create Record -> Set Result",
+              "targetStep": "/api/3/workflow_steps/e63cb5e7-5011-416b-89a9-2508cc950385",
+              "sourceStep": "/api/3/workflow_steps/521b0253-c32c-4e73-826e-2041788a120e",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "2fb7e67b-2800-476a-acb0-382795b46507"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Record List -> Create Record",
+              "targetStep": "/api/3/workflow_steps/521b0253-c32c-4e73-826e-2041788a120e",
+              "sourceStep": "/api/3/workflow_steps/f0c7a849-6dd2-40e6-85e8-f88dfd319695",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "56151afe-8342-4ab5-8e75-49ec725f3fe0"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Macro Value -> Evaluate Time",
+              "targetStep": "/api/3/workflow_steps/f18bf975-cf6d-4d17-95d8-bb294c1f4d98",
+              "sourceStep": "/api/3/workflow_steps/97687d08-f4c3-4e53-95ed-92b08fdf9324",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "9dbbb9b4-8d75-4187-ad82-ed250424cca0"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Get Macro Value",
+              "targetStep": "/api/3/workflow_steps/97687d08-f4c3-4e53-95ed-92b08fdf9324",
+              "sourceStep": "/api/3/workflow_steps/1bb666ed-e779-4fd9-9700-985fe2902cf7",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ab168104-616b-4706-b3ad-57f8aaed602b"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Fetch Armis Alerts -> Record List",
+              "targetStep": "/api/3/workflow_steps/f0c7a849-6dd2-40e6-85e8-f88dfd319695",
+              "sourceStep": "/api/3/workflow_steps/1c775470-3d7d-4b03-a107-0da22b8ba534",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "acd79d40-d34f-419d-8e5f-041a3172f79e"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Is Data Only For mapping -> Return Sample Data",
+              "targetStep": "/api/3/workflow_steps/6842a17b-37bf-45e9-a1df-5023153850c0",
+              "sourceStep": "/api/3/workflow_steps/20bd2738-5fbc-49ff-8960-07e2786f96a1",
+              "label": "Yes, For Mapping",
+              "isExecuted": false,
+              "uuid": "dacd2565-c180-40be-89df-ce5fd7cb3d0a"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/1bb666ed-e779-4fd9-9700-985fe2902cf7",
+              "sourceStep": "/api/3/workflow_steps/362d3883-e13b-4de7-aef8-bd133270aded",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "dff1eb74-3107-4972-9e4b-e6e93d51dc05"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "da07b440-bea3-4aa8-9f7e-0db8a5625f42",
+          "id": 2199,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "dataingestion",
+            "create",
+            "fetch",
+            "Armis"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Alert Status",
+          "aliasName": null,
+          "tag": "#Armis",
+          "description": "Updates the status of a specific alert on the Armis server based on the alert ID and the alert status that you have specified.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/15b69826-9e1f-4b7b-996c-b59eda2d29f6",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "43e5c565-10cd-4917-9586-b70b84331ea2",
+                "title": "Armis: Update Alert Status",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "15b69826-9e1f-4b7b-996c-b59eda2d29f6"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Alert Status",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "''",
+                "params": {
+                  "status": "",
+                  "alert_id": ""
+                },
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "update_alert_status",
+                "operationTitle": "Update Alert Status"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "98e2a17c-bd1c-4556-aa85-3c15cc610fc1"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Update Alert Status",
+              "targetStep": "/api/3/workflow_steps/98e2a17c-bd1c-4556-aa85-3c15cc610fc1",
+              "sourceStep": "/api/3/workflow_steps/15b69826-9e1f-4b7b-996c-b59eda2d29f6",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "2386407b-426f-49ce-b5c7-580a2a0e3963"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "fe375d99-bb9d-48f1-9075-bfc2515b770e",
+          "id": 2191,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Armis"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Fetch Alerts",
+          "aliasName": null,
+          "tag": "#Armis",
+          "description": "Retrieves a detailed list of alerts from the Armis server. This action is used for Data Ingestion.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/077bf554-fd88-4e0c-b101-6326208de1d2",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/81aa3517-171f-462f-a0cf-2421dc2ff8ee",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "8c1f7f96-974f-4c0c-a4e2-de727b34d1f5",
+                "title": "Armis: Fetch Alerts",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "81aa3517-171f-462f-a0cf-2421dc2ff8ee"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Fetch Alerts",
+              "description": null,
+              "arguments": {
+                "name": "Armis",
+                "config": "''",
+                "params": [],
+                "version": "1.1.0",
+                "connector": "armis",
+                "operation": "fetch_alerts",
+                "operationTitle": "Fetch Alerts"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "ca883331-893c-4c31-a74f-26e73ef1790d"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Fetch Alerts",
+              "targetStep": "/api/3/workflow_steps/ca883331-893c-4c31-a74f-26e73ef1790d",
+              "sourceStep": "/api/3/workflow_steps/81aa3517-171f-462f-a0cf-2421dc2ff8ee",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ab0f41fa-fc37-4fc4-9799-28d432080365"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "ffd9c28b-262e-4eec-a00f-a25c468493e3",
+          "id": 2197,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Armis"
           ]
         }
       ]
     }
+  ],
+  "exported_tags": [
+    "Armis",
+    "dataingestion",
+    "ingest",
+    "create",
+    "fetch"
   ]
 }

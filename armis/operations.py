@@ -8,6 +8,7 @@ from datetime import datetime
 import pytz
 import requests
 from connectors.core.connector import get_logger, ConnectorError
+from connectors.core.utils import update_connnector_config
 
 logger = get_logger('armis')
 
@@ -19,12 +20,23 @@ class Armis:
             self.server_url = 'https://' + self.server_url
         self.verify_ssl = config.get('verify_ssl')
         self.secret = config.get('api_key')
+        self.token = config.get("token")
+        self.exp_time = config.get("exp_time", str(datetime.now(pytz.utc)))
+        if self.token is None or (datetime.strptime(self.exp_time, '%Y-%m-%dT%H:%M:%S.%f%z') < datetime.now(pytz.utc)):
+            self.get_token()
+            config["token"] = self.token
+            config["exp_time"] = self.exp_time
+        self.connector_info = config.get("connector_info")
+        if self.connector_info:
+            update_connnector_config(connector_name=self.connector_info.get("connector_name"),
+                                     version=self.connector_info.get("connector_version"),
+                                     updated_config=config,
+                                     configId=config.get("config_id"))
 
-    def make_rest_call(self, endpoint, config, headers=None, params=None, payload=None, method='GET'):
-        token = self.get_token(config)
+    def make_rest_call(self, endpoint, headers=None, params=None, payload=None, method='GET'):
         updated_headers = headers or {}
         updated_headers["accept"] = 'application/json'
-        updated_headers["Authorization"] = str(token)
+        updated_headers["Authorization"] = str(self.token)
         service_endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', endpoint)
         logger.info('Request URL {0}'.format(service_endpoint))
         try:
@@ -41,7 +53,7 @@ class Armis:
                     err_resp = response.json()
                     if "error" in err_resp:
                         error_msg = "{0}: {1}".format(err_resp.get('error').get('code'),
-                                                    err_resp.get('error').get('message'))
+                                                      err_resp.get('error').get('message'))
                         raise ConnectorError(error_msg)
                 else:
                     error_msg = '{0}: {1}'.format(response.status_code, response.reason)
@@ -62,20 +74,18 @@ class Armis:
             logger.error('{0}'.format(e))
             raise ConnectorError('{0}'.format(e))
 
-    def get_token(self, config):
+    def get_token(self):
         endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', '/access_token/')
         params = {'secret_key': self.secret}
-        if config.get('token') is None or config.get('exp_time') < datetime.now(pytz.utc):
-            resp = (requests.request('POST', endpoint, params=params)).json()
-            config["token"] = resp['data']['access_token']
-            config["exp_time"] = datetime.strptime(resp['data']['expiration_utc'], '%Y-%m-%dT%H:%M:%S.%f%z')
-
-        return config["token"]
+        resp = (requests.request('POST', endpoint, params=params)).json()
+        self.token = resp['data']['access_token']
+        self.exp_time = resp['data']['expiration_utc']
 
 
 def get_alerts(config, params):
     arm = Armis(config)
-    max_alerts = params.get('max_alerts')
+    limit = params.get('limit')
+    offset = params.get('offset')
     time_frame = params.get('time_frame')
     alert_id = params.get('alert_id')
     risk_level = params.get('risk_level')
@@ -84,10 +94,12 @@ def get_alerts(config, params):
     query_string = 'in:alerts'
     if time_frame:
         query_string += f' timeFrame:"{time_frame}"'
-    else:
-        query_string += f' timeFrame:"7 Days"'
     if alert_id:
-        query_string += f' alertId:({alert_id})'
+        if isinstance(alert_id, list):
+            alert_ids = ','.join([str(item) for item in alert_id])
+            query_string += f' alertId:({alert_ids})'
+        else:
+            query_string += f' alertId:({alert_id})'
     if risk_level:
         risk_levels = ','.join(risk_level)
         query_string += f' riskLevel:{risk_levels}'
@@ -95,52 +107,54 @@ def get_alerts(config, params):
         statuses = ','.join(status)
         query_string += f' status:{statuses}'
     if alert_type:
-        alert_types = ','.join(alert_type)
+        alert_types = ','.join([f'"{item}"' for item in alert_type])
         query_string += f' type:{alert_types}'
-    if max_alerts:
-        params['length'] = str(max_alerts)
+    if limit:
+        params['length'] = str(limit)
+    if offset:
+        params['from'] = str(offset)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', config, params=params)
+    return arm.make_rest_call('/search/', params=params)
 
 
 def get_devices(config, params):
     arm = Armis(config)
+    limit = params.get('limit')
+    offset = params.get('offset')
     device_name = params.get('device_name')
     device_id = params.get('device_id')
     mac_address = params.get('mac_address')
     ip_address = params.get('ip_address')
     device_type = params.get('device_type')
-    max_devices = params.get('max_devices')
     risk_level = params.get('risk_level')
     time_frame = params.get('time_frame')
     query_string = 'in:devices'
     if time_frame:
         query_string += f' timeFrame:"{time_frame}"'
-    else:
-        query_string += f' timeFrame:"7 Days"'
     if device_name:
         query_string += f' name:({device_name})'
     if device_id:
-        query_string += f' deviceId:({device_id})'
+        if isinstance(device_id, list):
+            device_ids = ','.join([str(item) for item in device_id])
+            query_string += f' deviceId:({device_ids})'
+        else:
+            query_string += f' deviceId:({device_id})'
     if mac_address:
         query_string += f' macAddress:({mac_address})'
     if ip_address:
         query_string += f' ipAddress:({ip_address})'
     if device_type:
-        type_list = device_type.split(',')
-        new_list = []
-        for item in type_list:
-            item = f'"{item}"'
-            new_list.append(item)
-        device_types = ','.join(new_list)
+        device_types = ','.join([f'"{item}"' for item in [item.strip(" ") for item in device_type.split(',')]])
         query_string += f' type:{device_types}'
     if risk_level:
         risk_levels = ','.join(risk_level)
         query_string += f' riskLevel:{risk_levels}'
-    if max_devices:
-        params['length'] = str(max_devices)
+    if limit:
+        params['length'] = str(limit)
+    if offset:
+        params['from'] = str(offset)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', config, params=params)
+    return arm.make_rest_call('/search/', params=params)
 
 
 def update_alert_status(config, params):
@@ -154,7 +168,7 @@ def update_alert_status(config, params):
     headers = {
         'content-type': 'application/x-www-form-urlencoded'
     }
-    return arm.make_rest_call(endpoint, config, headers=headers, payload=payload, method='PATCH')
+    return arm.make_rest_call(endpoint, headers=headers, payload=payload, method='PATCH')
 
 
 def add_device_tags(config, params):
@@ -166,7 +180,7 @@ def add_device_tags(config, params):
     payload = {
         'tags': taglist
     }
-    return arm.make_rest_call(endpoint, config, payload=payload, method='POST')
+    return arm.make_rest_call(endpoint, payload=payload, method='POST')
 
 
 def remove_device_tags(config, params):
@@ -178,41 +192,65 @@ def remove_device_tags(config, params):
     payload = {
         'tags': taglist
     }
-    return arm.make_rest_call(endpoint, config, payload=payload, method='DELETE')
+    return arm.make_rest_call(endpoint, payload=payload, method='DELETE')
 
 
 def get_alerts_by_asq(config, params):
     arm = Armis(config)
     query_string = params.get('query_string')
-    max_alerts = params.get('max_alerts')
+    limit = params.get('limit')
+    offset = params.get('offset')
     query = 'in:alerts'
     if query_string:
         query += f' {query_string}'
-    if max_alerts:
-        params['length'] = str(max_alerts)
+    if limit:
+        params['length'] = str(limit)
+    if offset:
+        params['from'] = str(offset)
     params['aql'] = query
-    return arm.make_rest_call('/search/', config, params=params)
+    return arm.make_rest_call('/search/', params=params)
 
 
 def get_devices_by_asq(config, params):
     arm = Armis(config)
     query_string = params.get('query_string')
-    max_devices = params.get('max_devices')
+    limit = params.get('limit')
+    offset = params.get('offset')
     query = 'in:devices'
     if query_string:
         query += f' {query_string}'
-    if max_devices:
-        params['length'] = str(max_devices)
+    if limit:
+        params['length'] = str(limit)
+    if offset:
+        params['from'] = str(offset)
     params['aql'] = query
-    return arm.make_rest_call('/search/', config, params=params)
+    return arm.make_rest_call('/search/', params=params)
+
+
+def fetch_alerts(config, params):
+    arm = Armis(config)
+    start_time = str(params.get('start_time'))
+    limit = params.get('limit')
+    offset = params.get('offset')
+    start_time = start_time[:19]
+    query = f'in:alerts after:{start_time}'
+    if limit:
+        params['length'] = str(limit)
+    if offset:
+        params['from'] = str(offset)
+    params['aql'] = query
+    return arm.make_rest_call('/search/', params=params)
 
 
 def _check_health(config):
-    arm = Armis(config)
-    token = arm.get_token(config)
-    if token:
-        logger.info('connector available')
-        return True
+    try:
+        arm = Armis(config)
+        if arm.token is not None:
+            return True
+        else:
+            return False
+    except Exception as e:
+        return False
 
 
 operations = {
@@ -222,5 +260,6 @@ operations = {
     'add_device_tags': add_device_tags,
     'remove_device_tags': remove_device_tags,
     'get_devices': get_devices,
-    'get_devices_by_asq': get_devices_by_asq
+    'get_devices_by_asq': get_devices_by_asq,
+    'fetch_alerts': fetch_alerts
 }
