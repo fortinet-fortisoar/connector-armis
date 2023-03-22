@@ -4,6 +4,7 @@
   FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
   Copyright end """
 
+
 from datetime import datetime
 import pytz
 import requests
@@ -33,15 +34,15 @@ class Armis:
                                      updated_config=config,
                                      configId=config.get("config_id"))
 
-    def make_rest_call(self, endpoint, headers=None, params=None, payload=None, method='GET'):
+    def make_rest_call(self, endpoint, headers=None, params=None, payload=None, json_data=None, method='GET'):
         updated_headers = headers or {}
         updated_headers["accept"] = 'application/json'
         updated_headers["Authorization"] = str(self.token)
         service_endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', endpoint)
         logger.info('Request URL {0}'.format(service_endpoint))
         try:
-            response = requests.request(method, service_endpoint, data=str(payload), headers=updated_headers,
-                                        params=params, verify=self.verify_ssl)
+            response = requests.request(method, service_endpoint, data=payload, headers=updated_headers,
+                                        params=params, json=json_data, verify=self.verify_ssl)
             if response.ok:
                 content_type = response.headers.get('Content-Type')
                 if response.text != "" and 'application/json' in content_type:
@@ -91,6 +92,7 @@ def get_alerts(config, params):
     risk_level = params.get('risk_level')
     status = params.get('status')
     alert_type = params.get('alert_type')
+    site = params.get('site')
     query_string = 'in:alerts'
     if time_frame:
         query_string += f' timeFrame:"{time_frame}"'
@@ -109,12 +111,60 @@ def get_alerts(config, params):
     if alert_type:
         alert_types = ','.join([f'"{item}"' for item in alert_type])
         query_string += f' type:{alert_types}'
+    if site:
+        sites = ','.join([f'"{item}"' for item in [item.strip(" ") for item in site.split(',')]])
+        query_string += f' site:{sites}'
     if limit:
         params['length'] = str(limit)
     if offset:
         params['from'] = str(offset)
     params['aql'] = query_string
     return arm.make_rest_call('/search/', params=params)
+
+
+def fetch_alerts(config, params):
+    arm = Armis(config)
+    start_time = str(params.get('start_time'))
+    limit = params.get('limit')
+    offset = params.get('offset')
+    start_time = start_time[:19]
+    query = f'in:alerts after:{start_time}'
+    if limit:
+        params['length'] = str(limit)
+    if offset:
+        params['from'] = str(offset)
+    params['aql'] = query
+    return arm.make_rest_call('/search/', params=params)
+
+
+def get_alerts_by_asq(config, params):
+    arm = Armis(config)
+    query_string = params.get('query_string')
+    limit = params.get('limit')
+    offset = params.get('offset')
+    query = 'in:alerts'
+    if query_string:
+        query += f' {query_string}'
+    if limit:
+        params['length'] = str(limit)
+    if offset:
+        params['from'] = str(offset)
+    params['aql'] = query
+    return arm.make_rest_call('/search/', params=params)
+
+
+def update_alert_status(config, params):
+    arm = Armis(config)
+    alert_id = params.get('alert_id')
+    status = params.get('status')
+    endpoint = f'/alerts/{alert_id}/'
+    payload = {
+        'status': status
+    }
+    headers = {
+        'content-type': 'application/x-www-form-urlencoded'
+    }
+    return arm.make_rest_call(endpoint, headers=headers, payload=payload, method='PATCH')
 
 
 def get_devices(config, params):
@@ -128,6 +178,7 @@ def get_devices(config, params):
     device_type = params.get('device_type')
     risk_level = params.get('risk_level')
     time_frame = params.get('time_frame')
+    site = params.get('site')
     query_string = 'in:devices'
     if time_frame:
         query_string += f' timeFrame:"{time_frame}"'
@@ -149,65 +200,14 @@ def get_devices(config, params):
     if risk_level:
         risk_levels = ','.join(risk_level)
         query_string += f' riskLevel:{risk_levels}'
+    if site:
+        sites = ','.join([f'"{item}"' for item in [item.strip(" ") for item in site.split(',')]])
+        query_string += f' site:{sites}'
     if limit:
         params['length'] = str(limit)
     if offset:
         params['from'] = str(offset)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', params=params)
-
-
-def update_alert_status(config, params):
-    arm = Armis(config)
-    alert_id = params.get('alert_id')
-    status = params.get('status')
-    endpoint = f'/alerts/{alert_id}/'
-    payload = {
-        'status': status
-    }
-    headers = {
-        'content-type': 'application/x-www-form-urlencoded'
-    }
-    return arm.make_rest_call(endpoint, headers=headers, payload=payload, method='PATCH')
-
-
-def add_device_tags(config, params):
-    arm = Armis(config)
-    device_id = params.get('device_id')
-    tags = params.get('tags')
-    taglist = tags.split(',')
-    endpoint = f'/devices/{device_id}/tags/'
-    payload = {
-        'tags': taglist
-    }
-    return arm.make_rest_call(endpoint, payload=payload, method='POST')
-
-
-def remove_device_tags(config, params):
-    arm = Armis(config)
-    device_id = params.get('device_id')
-    tags = params.get('tags')
-    taglist = tags.split(',')
-    endpoint = f'/devices/{device_id}/tags/'
-    payload = {
-        'tags': taglist
-    }
-    return arm.make_rest_call(endpoint, payload=payload, method='DELETE')
-
-
-def get_alerts_by_asq(config, params):
-    arm = Armis(config)
-    query_string = params.get('query_string')
-    limit = params.get('limit')
-    offset = params.get('offset')
-    query = 'in:alerts'
-    if query_string:
-        query += f' {query_string}'
-    if limit:
-        params['length'] = str(limit)
-    if offset:
-        params['from'] = str(offset)
-    params['aql'] = query
     return arm.make_rest_call('/search/', params=params)
 
 
@@ -227,19 +227,81 @@ def get_devices_by_asq(config, params):
     return arm.make_rest_call('/search/', params=params)
 
 
-def fetch_alerts(config, params):
+def update_device(config, params):
     arm = Armis(config)
-    start_time = str(params.get('start_time'))
+    device_id = params.get('device_id')
+    attributes = params.get('attributes')
+    endpoint = f'/devices/{device_id}/'
+    return arm.make_rest_call(endpoint, json_data=attributes, method='PATCH')
+
+
+def add_device_tags(config, params):
+    arm = Armis(config)
+    device_id = params.get('device_id')
+    tags = params.get('tags')
+    taglist = tags.split(',')
+    endpoint = f'/devices/{device_id}/tags/'
+    payload = {
+        'tags': taglist
+    }
+    return arm.make_rest_call(endpoint, json_data=payload, method='POST')
+
+
+def remove_device_tags(config, params):
+    arm = Armis(config)
+    device_id = params.get('device_id')
+    tags = params.get('tags')
+    taglist = tags.split(',')
+    endpoint = f'/devices/{device_id}/tags/'
+    payload = {
+        'tags': taglist
+    }
+    return arm.make_rest_call(endpoint, json_data=payload, method='DELETE')
+
+
+def get_policies(config, params):
+    arm = Armis(config)
     limit = params.get('limit')
     offset = params.get('offset')
-    start_time = start_time[:19]
-    query = f'in:alerts after:{start_time}'
     if limit:
         params['length'] = str(limit)
     if offset:
         params['from'] = str(offset)
-    params['aql'] = query
-    return arm.make_rest_call('/search/', params=params)
+    return arm.make_rest_call('/policies/', params=params)
+
+
+def update_policy(config, params):
+    arm = Armis(config)
+    policy_id = params.get('policy_id')
+    attributes = params.get('attributes')
+    endpoint = f'/policies/{policy_id}/'
+    return arm.make_rest_call(endpoint, json_data=attributes, method='PATCH')
+
+
+def get_reports(config, params):
+    arm = Armis(config)
+    return arm.make_rest_call('/reports/')
+
+
+def get_vulnerability_matches(config, params):
+    arm = Armis(config)
+    input_type = params.get('input_type')
+    ids = params.get('ids')
+    limit = params.get('limit')
+    offset = params.get('offset')
+    if isinstance(ids, list):
+        ids = ','.join([str(item) for item in ids])
+    else:
+        ids = str(ids)
+    if limit:
+        params['length'] = str(limit)
+    if offset:
+        params['from'] = str(offset)
+    if input_type == 'Device IDs':
+        params['device_ids'] = ids
+    else:
+        params['vulnerability_ids'] = ids
+    return arm.make_rest_call('/vulnerability-match/', params=params)
 
 
 def _check_health(config):
@@ -255,11 +317,16 @@ def _check_health(config):
 
 operations = {
     'get_alerts': get_alerts,
-    'update_alert_status': update_alert_status,
+    'fetch_alerts': fetch_alerts,
     'get_alerts_by_asq': get_alerts_by_asq,
-    'add_device_tags': add_device_tags,
-    'remove_device_tags': remove_device_tags,
+    'update_alert_status': update_alert_status,
     'get_devices': get_devices,
     'get_devices_by_asq': get_devices_by_asq,
-    'fetch_alerts': fetch_alerts
+    'update_device': update_device,
+    'add_device_tags': add_device_tags,
+    'remove_device_tags': remove_device_tags,
+    'get_policies': get_policies,
+    'update_policy': update_policy,
+    'get_reports': get_reports,
+    'get_vulnerability_matches': get_vulnerability_matches
 }

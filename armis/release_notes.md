@@ -1,17 +1,29 @@
 What's Improved
+- Added following new actions:
+  - Fetch Alerts used for data ingestion
+  - Update Device
+  - Get Policies List
+  - Update Policy
+  - Get Reports List
+  - Get Vulnerability Matches
 - Added the ability to configure data ingestion (using the Data Ingestion Wizard). The Data Ingestion Wizard also supports multiple configurations specified on the Configurations tab of the Armis connector, ensuring respective global variables based on the selected configuration are used while ingesting data.
-- Added a new action 'Fetch Alerts' used for data ingestion.
+- Removed default value of 7 Days from 'Time Frame' parameter of 'Get Alerts' and 'Get Devices' action.
+- Changed Output Schema of following actions:
+	- Get Alerts List
+	- Get Alerts By Armis Standard Query
+    - Get Devices List
+    - Get Devices By Armis Standard Query
 - Removed 'Max Alerts' parameter from following actions:
 	- Get Alerts
 	- Get Alerts By Armis Standard Query
-
 - Removed 'Max Devices' parameter from following actions:
 	- Get Devices
 	- Get Devices By Armis Standard Query
-
 - Added 'Limit' and 'Offset' parameter in following actions:
 	- Get Alerts
 	- Get Alerts By Armis Standard Query
 	- Get Devices
 	- Get Devices By Armis Standard Query
-- Removed default value of 7 Days from 'Time Frame' parameter of 'Get Alerts' and 'Get Devices' action.
+- Added 'Sites' parameter in following actions:
+	- Get Alerts
+	- Get Devices
