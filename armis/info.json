@@ -642,7 +642,7 @@
     },
     {
       "operation": "add_device_tags",
-      "title": "Add Tags to a Device",
+      "title": "Add Device Tag",
       "description": "Adds tags to a Device based on the device ID and tag name that you have specified. Permissions required: Device > Manage > Tags.",
       "category": "investigation",
       "annotation": "add_device_tags",
@@ -679,7 +679,7 @@
     },
     {
       "operation": "remove_device_tags",
-      "title": "Remove Tags from a Device",
+      "title": "Remove Device Tag",
       "description": "Removes tags from a Device based on the device ID and tag name that you have specified. Permissions required: Device > Manage > Tags.",
       "category": "investigation",
       "annotation": "remove_device_tags",

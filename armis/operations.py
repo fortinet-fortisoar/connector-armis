@@ -78,9 +78,13 @@ class Armis:
     def get_token(self):
         endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', '/access_token/')
         params = {'secret_key': self.secret}
-        resp = (requests.request('POST', endpoint, params=params)).json()
-        self.token = resp['data']['access_token']
-        self.exp_time = resp['data']['expiration_utc']
+        response = (requests.request('POST', endpoint, params=params))
+        resp = response.json()
+        if response.status_code == 200:
+            self.token = resp['data']['access_token']
+            self.exp_time = resp['data']['expiration_utc']
+        else:
+            raise ConnectorError('{0}'.format(resp.get('message')))
 
 
 def get_alerts(config, params):
@@ -312,7 +316,7 @@ def _check_health(config):
         else:
             return False
     except Exception as e:
-        return False
+        raise ConnectorError('{0}'.format(e))
 
 
 operations = {

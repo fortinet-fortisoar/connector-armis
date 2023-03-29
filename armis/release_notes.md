@@ -9,21 +9,24 @@ What's Improved
 - Added the ability to configure data ingestion (using the Data Ingestion Wizard). The Data Ingestion Wizard also supports multiple configurations specified on the Configurations tab of the Armis connector, ensuring respective global variables based on the selected configuration are used while ingesting data.
 - Removed default value of 7 Days from 'Time Frame' parameter of 'Get Alerts' and 'Get Devices' action.
 - Changed Output Schema of following actions:
-	- Get Alerts List
-	- Get Alerts By Armis Standard Query
-    - Get Devices List
-    - Get Devices By Armis Standard Query
+  - Get Alerts List
+  - Get Alerts By Armis Standard Query
+  - Get Devices List
+  - Get Devices By Armis Standard Query
+- Changed following actions name:
+  - 'Add Tags to a Device' to 'Add Device Tag'
+  - 'Remove Tags from a Device' to 'Remove Device Tag'
 - Removed 'Max Alerts' parameter from following actions:
-	- Get Alerts
-	- Get Alerts By Armis Standard Query
+  - Get Alerts
+  - Get Alerts By Armis Standard Query
 - Removed 'Max Devices' parameter from following actions:
-	- Get Devices
-	- Get Devices By Armis Standard Query
+  - Get Devices
+  - Get Devices By Armis Standard Query
 - Added 'Limit' and 'Offset' parameter in following actions:
-	- Get Alerts
-	- Get Alerts By Armis Standard Query
-	- Get Devices
-	- Get Devices By Armis Standard Query
+  - Get Alerts
+  - Get Alerts By Armis Standard Query
+  - Get Devices
+  - Get Devices By Armis Standard Query
 - Added 'Sites' parameter in following actions:
-	- Get Alerts
-	- Get Devices
+  - Get Alerts
+  - Get Devices
