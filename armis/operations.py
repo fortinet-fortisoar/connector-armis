@@ -76,15 +76,20 @@ class Armis:
             raise ConnectorError('{0}'.format(e))
 
     def get_token(self):
-        endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', '/access_token/')
-        params = {'secret_key': self.secret}
-        response = (requests.request('POST', endpoint, params=params))
-        resp = response.json()
-        if response.status_code == 200:
-            self.token = resp['data']['access_token']
-            self.exp_time = resp['data']['expiration_utc']
-        else:
-            raise ConnectorError('{0}'.format(resp.get('message')))
+        try:
+            endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', '/access_token/')
+            params = {'secret_key': self.secret}
+            response = (requests.request('POST', endpoint, params=params))
+            resp = response.json()
+            if response.status_code == 200:
+                self.token = resp['data']['access_token']
+                self.exp_time = resp['data']['expiration_utc']
+            else:
+                raise ConnectorError('{0}'.format(resp.get('message')))
+        except requests.exceptions.ConnectionError:
+            raise ConnectorError('Invalid Server URL')
+        except Exception as e:
+            raise ConnectorError('{0}'.format(e))
 
 
 def get_alerts(config, params):
