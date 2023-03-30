@@ -1,0 +1,11 @@
+What's Improved
+- This version is QA certified
+- Added following new actions:
+  - Fetch Alerts used for data ingestion
+  - Update Device
+  - Get Policies List
+  - Update Policy
+  - Get Reports List
+  - Get Vulnerability Matches
+- Added the ability to configure data ingestion (using the Data Ingestion Wizard). The Data Ingestion Wizard also supports multiple configurations specified on the Configurations tab of the Armis connector, ensuring respective global variables based on the selected configuration are used while ingesting data.
+- Changed action name, parameter name and output schema for various actions.
