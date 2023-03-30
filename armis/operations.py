@@ -79,7 +79,7 @@ class Armis:
         try:
             endpoint = '{0}{1}{2}'.format(self.server_url, '/api/v1', '/access_token/')
             params = {'secret_key': self.secret}
-            response = (requests.request('POST', endpoint, params=params))
+            response = requests.request('POST', endpoint, params=params)
             resp = response.json()
             if response.status_code == 200:
                 self.token = resp['data']['access_token']
@@ -318,8 +318,6 @@ def _check_health(config):
         arm = Armis(config)
         if arm.token is not None:
             return True
-        else:
-            return False
     except Exception as e:
         raise ConnectorError('{0}'.format(e))
 
