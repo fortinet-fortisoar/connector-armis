@@ -96,15 +96,16 @@ def get_alerts(config, params):
     arm = Armis(config)
     limit = params.get('limit')
     offset = params.get('offset')
-    time_frame = params.get('time_frame')
+    start_time = str(params.get('start_time'))
     alert_id = params.get('alert_id')
     risk_level = params.get('risk_level')
     status = params.get('status')
     alert_type = params.get('alert_type')
     site = params.get('site')
     query_string = 'in:alerts'
-    if time_frame:
-        query_string += f' timeFrame:"{time_frame}"'
+    start_time = start_time[:19]
+    if start_time:
+        query_string += f' after:{start_time}'
     if alert_id:
         if isinstance(alert_id, list):
             alert_ids = ','.join([str(item) for item in alert_id])
@@ -128,21 +129,6 @@ def get_alerts(config, params):
     if offset:
         params['from'] = str(offset)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', params=params)
-
-
-def fetch_alerts(config, params):
-    arm = Armis(config)
-    start_time = str(params.get('start_time'))
-    limit = params.get('limit')
-    offset = params.get('offset')
-    start_time = start_time[:19]
-    query = f'in:alerts after:{start_time}'
-    if limit:
-        params['length'] = str(limit)
-    if offset:
-        params['from'] = str(offset)
-    params['aql'] = query
     return arm.make_rest_call('/search/', params=params)
 
 
@@ -324,7 +310,6 @@ def _check_health(config):
 
 operations = {
     'get_alerts': get_alerts,
-    'fetch_alerts': fetch_alerts,
     'get_alerts_by_asq': get_alerts_by_asq,
     'update_alert_status': update_alert_status,
     'get_devices': get_devices,
