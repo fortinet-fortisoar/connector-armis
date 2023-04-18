@@ -1,7 +1,6 @@
 What's Improved
 - This version is QA certified
 - Added following new actions:
-  - Fetch Alerts used for data ingestion
   - Update Device
   - Get Policies List
   - Update Policy

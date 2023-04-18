@@ -90,15 +90,14 @@
           "visible": true
         },
         {
-          "title": "Time Frame",
-          "name": "time_frame",
-          "type": "text",
-          "tooltip": "Specify the time frame to retrieve the alerts from the Armis server.",
-          "description": "(Optional) Specify the time frame to retrieve the alerts from the Armis server.",
+          "name": "start_time",
+          "title": "Start Time",
+          "type": "datetime",
+          "description": "Specify the starting DateTime to only include those items that have been created after the specified timestamp. ",
           "required": false,
-          "editable": true,
           "visible": true,
-          "placeholder": "e.g. 10 Days"
+          "editable": true,
+          "tooltip": "Specify the starting DateTime to only include those items that have been created after the specified timestamp. "
         },
         {
           "title": "Risk Level",
@@ -154,69 +153,6 @@
           "required": false,
           "editable": true,
           "visible": true
-        },
-        {
-          "title": "Limit",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "limit",
-          "tooltip": "The maximum number of records to return. Default: 10",
-          "description": "(Optional) Maximum number of records that this operation should return. Default: 10"
-        },
-        {
-          "title": "Offset",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "offset",
-          "tooltip": "The offset of the first item to return. Default: 0",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
-        }
-      ]
-    },
-    {
-      "operation": "fetch_alerts",
-      "title": "Fetch Alerts",
-      "description": "Retrieves a detailed list of alerts from the Armis server. This action is used for Data Ingestion.",
-      "category": "investigation",
-      "annotation": "fetch_alerts",
-      "output_schema": {
-          "data": {
-              "count": "",
-              "next": "",
-              "prev": "",
-              "results": [
-                  {
-                      "activityUUIDs": [],
-                      "alertId": "",
-                      "connectionIds": [],
-                      "description": "",
-                      "deviceIds": [],
-                      "severity": "",
-                      "status": "",
-                      "time": "",
-                      "title": "",
-                      "type": ""
-                  }
-              ],
-              "total": ""
-          },
-          "success": ""
-      },
-      "enabled": true,
-      "parameters": [
-        {
-          "name": "start_time",
-          "title": "Start Time",
-          "type": "datetime",
-          "description": "Specify the starting DateTime to only include those items that have been created after the specified timestamp. ",
-          "required": true,
-          "visible": true,
-          "editable": true,
-          "tooltip": "Specify the starting DateTime to only include those items that have been created after the specified timestamp. "
         },
         {
           "title": "Limit",
