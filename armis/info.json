@@ -148,8 +148,8 @@
           "title": "Sites",
           "name": "site",
           "type": "text",
-          "tooltip": "Specify the Sites to filter devices retrieved from the Armis server.",
-          "description": "(Optional) Specify the Sites to filter devices retrieved from the Armis server.",
+          "tooltip": "Specify the Sites to filter alerts retrieved from the Armis server.",
+          "description": "(Optional) Specify the Sites to filter alerts retrieved from the Armis server.",
           "required": false,
           "editable": true,
           "visible": true
