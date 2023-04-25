@@ -144,7 +144,7 @@ def get_alerts(config, params):
     if limit:
         params['length'] = str(limit)
     else:
-        params['length'] = 50
+        params['length'] = 500
     if offset:
         params['from'] = str(offset)
     params['aql'] = query_string
@@ -168,7 +168,7 @@ def get_alerts_by_asq(config, params):
     if limit:
         params['length'] = str(limit)
     else:
-        params['length'] = 50
+        params['length'] = 500
     if offset:
         params['from'] = str(offset)
     params['aql'] = query
@@ -234,7 +234,7 @@ def get_devices(config, params):
     if limit:
         params['length'] = str(limit)
     else:
-        params['length'] = 50
+        params['length'] = 500
     if offset:
         params['from'] = str(offset)
     params['aql'] = query_string
@@ -258,7 +258,7 @@ def get_devices_by_asq(config, params):
     if limit:
         params['length'] = str(limit)
     else:
-        params['length'] = 50
+        params['length'] = 500
     if offset:
         params['from'] = str(offset)
     params['aql'] = query
@@ -310,7 +310,7 @@ def get_policies(config, params):
     if limit:
         params['length'] = str(limit)
     else:
-        params['length'] = 50
+        params['length'] = 500
     if offset:
         params['from'] = str(offset)
     endpoint = '/policies/'
@@ -348,7 +348,7 @@ def get_vulnerability_matches(config, params):
     if limit:
         params['length'] = str(limit)
     else:
-        params['length'] = 50
+        params['length'] = 500
     if offset:
         params['from'] = str(offset)
     if input_type == 'Device IDs':
