@@ -52,9 +52,8 @@ class Armis:
             else:
                 if response.text != "":
                     err_resp = response.json()
-                    if "error" in err_resp:
-                        error_msg = "{0}: {1}".format(err_resp.get('error').get('code'),
-                                                      err_resp.get('error').get('message'))
+                    if "message" in err_resp:
+                        error_msg = "{0}".format(err_resp.get('message'))
                         raise ConnectorError(error_msg)
                 else:
                     error_msg = '{0}: {1}'.format(response.status_code, response.reason)
@@ -91,20 +90,38 @@ class Armis:
         except Exception as e:
             raise ConnectorError('{0}'.format(e))
 
+    def get_all_records(self, resp, endpoint, params):
+        res = resp
+        if endpoint == '/vulnerability-match/':
+            while resp.get('data').get('paging').get('next'):
+                params['from'] = resp.get('data').get('paging').get('next')
+                resp = self.make_rest_call(endpoint, params=params)
+                res.get('data').get('sample').extend(resp.get('data').get('sample'))
+        else:
+            while resp.get('data').get('next'):
+                params['from'] = resp.get('data').get('next')
+                resp = self.make_rest_call(endpoint, params=params)
+                if endpoint == '/policies/':
+                    res.get('data').get('policies').extend(resp.get('data').get('policies'))
+                else:
+                    res.get('data').get('results').extend(resp.get('data').get('results'))
+        return res
+
 
 def get_alerts(config, params):
     arm = Armis(config)
     limit = params.get('limit')
     offset = params.get('offset')
-    start_time = str(params.get('start_time'))
+    start_time = (params.get('start_time'))
     alert_id = params.get('alert_id')
     risk_level = params.get('risk_level')
     status = params.get('status')
     alert_type = params.get('alert_type')
     site = params.get('site')
+    records = params.get('records')
     query_string = 'in:alerts'
-    start_time = start_time[:19]
     if start_time:
+        start_time = start_time[:19]
         query_string += f' after:{start_time}'
     if alert_id:
         if isinstance(alert_id, list):
@@ -126,10 +143,17 @@ def get_alerts(config, params):
         query_string += f' site:{sites}'
     if limit:
         params['length'] = str(limit)
+    else:
+        params['length'] = 50
     if offset:
         params['from'] = str(offset)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', params=params)
+    endpoint = '/search/'
+    resp = arm.make_rest_call(endpoint, params=params)
+    if records == "Fetch All Records":
+        return arm.get_all_records(resp, endpoint, params)
+    else:
+        return resp
 
 
 def get_alerts_by_asq(config, params):
@@ -137,15 +161,23 @@ def get_alerts_by_asq(config, params):
     query_string = params.get('query_string')
     limit = params.get('limit')
     offset = params.get('offset')
+    records = params.get('records')
     query = 'in:alerts'
     if query_string:
         query += f' {query_string}'
     if limit:
         params['length'] = str(limit)
+    else:
+        params['length'] = 50
     if offset:
         params['from'] = str(offset)
     params['aql'] = query
-    return arm.make_rest_call('/search/', params=params)
+    endpoint = '/search/'
+    resp = arm.make_rest_call(endpoint, params=params)
+    if records == "Fetch All Records":
+        return arm.get_all_records(resp, endpoint, params)
+    else:
+        return resp
 
 
 def update_alert_status(config, params):
@@ -174,6 +206,7 @@ def get_devices(config, params):
     risk_level = params.get('risk_level')
     time_frame = params.get('time_frame')
     site = params.get('site')
+    records = params.get('records')
     query_string = 'in:devices'
     if time_frame:
         query_string += f' timeFrame:"{time_frame}"'
@@ -200,10 +233,17 @@ def get_devices(config, params):
         query_string += f' site:{sites}'
     if limit:
         params['length'] = str(limit)
+    else:
+        params['length'] = 50
     if offset:
         params['from'] = str(offset)
     params['aql'] = query_string
-    return arm.make_rest_call('/search/', params=params)
+    endpoint = '/search/'
+    resp = arm.make_rest_call(endpoint, params=params)
+    if records == "Fetch All Records":
+        return arm.get_all_records(resp, endpoint, params)
+    else:
+        return resp
 
 
 def get_devices_by_asq(config, params):
@@ -211,15 +251,23 @@ def get_devices_by_asq(config, params):
     query_string = params.get('query_string')
     limit = params.get('limit')
     offset = params.get('offset')
+    records = params.get('records')
     query = 'in:devices'
     if query_string:
         query += f' {query_string}'
     if limit:
         params['length'] = str(limit)
+    else:
+        params['length'] = 50
     if offset:
         params['from'] = str(offset)
     params['aql'] = query
-    return arm.make_rest_call('/search/', params=params)
+    endpoint = '/search/'
+    resp = arm.make_rest_call(endpoint, params=params)
+    if records == "Fetch All Records":
+        return arm.get_all_records(resp, endpoint, params)
+    else:
+        return resp
 
 
 def update_device(config, params):
@@ -258,11 +306,19 @@ def get_policies(config, params):
     arm = Armis(config)
     limit = params.get('limit')
     offset = params.get('offset')
+    records = params.get('records')
     if limit:
         params['length'] = str(limit)
+    else:
+        params['length'] = 50
     if offset:
         params['from'] = str(offset)
-    return arm.make_rest_call('/policies/', params=params)
+    endpoint = '/policies/'
+    resp = arm.make_rest_call(endpoint, params=params)
+    if records == "Fetch All Records":
+        return arm.get_all_records(resp, endpoint, params)
+    else:
+        return resp
 
 
 def update_policy(config, params):
@@ -284,19 +340,27 @@ def get_vulnerability_matches(config, params):
     ids = params.get('ids')
     limit = params.get('limit')
     offset = params.get('offset')
+    records = params.get('records')
     if isinstance(ids, list):
         ids = ','.join([str(item) for item in ids])
     else:
         ids = str(ids)
     if limit:
         params['length'] = str(limit)
+    else:
+        params['length'] = 50
     if offset:
         params['from'] = str(offset)
     if input_type == 'Device IDs':
         params['device_ids'] = ids
     else:
         params['vulnerability_ids'] = ids
-    return arm.make_rest_call('/vulnerability-match/', params=params)
+    endpoint = '/vulnerability-match/'
+    resp = arm.make_rest_call(endpoint, params=params)
+    if records == "Fetch All Records":
+        return arm.get_all_records(resp, endpoint, params)
+    else:
+        return resp
 
 
 def _check_health(config):
