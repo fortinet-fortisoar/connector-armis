@@ -155,24 +155,43 @@
           "visible": true
         },
         {
-          "title": "Limit",
-          "required": false,
+          "title": "Number of Records to Return",
+          "description": "Select whether you want this operation to Fetch Limited Records or Fetch All Records. If you select Fetch Limited Records, then you must specify the following additional parameters: Limit: Maximum number of results that this operation should return. Offset: Index of the record post which all the records should return.",
+          "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
-          "name": "limit",
-          "tooltip": "The maximum number of records to return. Default: 10",
-          "description": "(Optional) Maximum number of records that this operation should return. Default: 10"
-        },
-        {
-          "title": "Offset",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "offset",
-          "tooltip": "The offset of the first item to return. Default: 0",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
+          "type": "select",
+          "options": [
+            "Fetch All Records",
+            "Fetch Limited Records"
+          ],
+          "name": "records",
+          "value": "Fetch All Records",
+          "onchange": {
+            "Fetch All Records": [],
+            "Fetch Limited Records": [
+              {
+                "title": "Limit",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "limit",
+                "tooltip": "Specify the maximum number of alerts that this operation should return. Default:10",
+                "description": "Specify the maximum number of alerts that this operation should return. Default:10"
+              },
+              {
+                "title": "Offset",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "offset",
+                "tooltip": "To skip the first n element based upon the value you specify in there",
+                "description": "Specify the count of the first few records to skip while retrieving response."
+              }
+            ]
+          }
         }
       ]
     },
@@ -219,24 +238,43 @@
           "placeholder": "timeFrame:\"7 Days\""
         },
         {
-          "title": "Limit",
-          "required": false,
+          "title": "Number of Records to Return",
+          "description": "Select whether you want this operation to Fetch Limited Records or Fetch All Records. If you select Fetch Limited Records, then you must specify the following additional parameters: Limit: Maximum number of results that this operation should return. Offset: Index of the record post which all the records should return.",
+          "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
-          "name": "limit",
-          "tooltip": "The maximum number of records to return. Default: 10",
-          "description": "(Optional) Maximum number of records that this operation should return. Default: 10"
-        },
-        {
-          "title": "Offset",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "offset",
-          "tooltip": "The offset of the first item to return. Default: 0",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
+          "type": "select",
+          "options": [
+            "Fetch All Records",
+            "Fetch Limited Records"
+          ],
+          "name": "records",
+          "value": "Fetch All Records",
+          "onchange": {
+            "Fetch All Records": [],
+            "Fetch Limited Records": [
+              {
+                "title": "Limit",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "limit",
+                "tooltip": "Specify the maximum number of alerts that this operation should return. Default:10",
+                "description": "Specify the maximum number of alerts that this operation should return. Default:10"
+              },
+              {
+                "title": "Offset",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "offset",
+                "tooltip": "To skip the first n element based upon the value you specify in there",
+                "description": "Specify the count of the first few records to skip while retrieving response."
+              }
+            ]
+          }
         }
       ]
     },
@@ -428,24 +466,43 @@
           "placeholder": "e.g. 10 Days"
         },
         {
-          "title": "Limit",
-          "required": false,
+          "title": "Number of Records to Return",
+          "description": "Select whether you want this operation to Fetch Limited Records or Fetch All Records. If you select Fetch Limited Records, then you must specify the following additional parameters: Limit: Maximum number of results that this operation should return. Offset: Index of the record post which all the records should return.",
+          "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
-          "name": "limit",
-          "tooltip": "The maximum number of records to return. Default: 10",
-          "description": "(Optional) Maximum number of records that this operation should return. Default: 10"
-        },
-        {
-          "title": "Offset",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "offset",
-          "tooltip": "The offset of the first item to return. Default: 0",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
+          "type": "select",
+          "options": [
+            "Fetch All Records",
+            "Fetch Limited Records"
+          ],
+          "name": "records",
+          "value": "Fetch All Records",
+          "onchange": {
+            "Fetch All Records": [],
+            "Fetch Limited Records": [
+              {
+                "title": "Limit",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "limit",
+                "tooltip": "Specify the maximum number of devices that this operation should return. Default:10",
+                "description": "Specify the maximum number of devices that this operation should return. Default:10"
+              },
+              {
+                "title": "Offset",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "offset",
+                "tooltip": "To skip the first n element based upon the value you specify in there",
+                "description": "Specify the count of the first few records to skip while retrieving response."
+              }
+            ]
+          }
         }
       ]
     },
@@ -520,24 +577,43 @@
           "placeholder": "timeFrame:\"7 Days\""
         },
         {
-          "title": "Limit",
-          "required": false,
+          "title": "Number of Records to Return",
+          "description": "Select whether you want this operation to Fetch Limited Records or Fetch All Records. If you select Fetch Limited Records, then you must specify the following additional parameters: Limit: Maximum number of results that this operation should return. Offset: Index of the record post which all the records should return.",
+          "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
-          "name": "limit",
-          "tooltip": "The maximum number of records to return. Default: 10",
-          "description": "(Optional) Maximum number of records that this operation should return. Default: 10"
-        },
-        {
-          "title": "Offset",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "offset",
-          "tooltip": "The offset of the first item to return. Default: 0",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
+          "type": "select",
+          "options": [
+            "Fetch All Records",
+            "Fetch Limited Records"
+          ],
+          "name": "records",
+          "value": "Fetch All Records",
+          "onchange": {
+            "Fetch All Records": [],
+            "Fetch Limited Records": [
+              {
+                "title": "Limit",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "limit",
+                "tooltip": "Specify the maximum number of devices that this operation should return. Default:10",
+                "description": "Specify the maximum number of devices that this operation should return. Default:10"
+              },
+              {
+                "title": "Offset",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "offset",
+                "tooltip": "To skip the first n element based upon the value you specify in there",
+                "description": "Specify the count of the first few records to skip while retrieving response."
+              }
+            ]
+          }
         }
       ]
     },
@@ -707,24 +783,43 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "Limit",
-          "required": false,
+          "title": "Number of Records to Return",
+          "description": "Select whether you want this operation to Fetch Limited Records or Fetch All Records. If you select Fetch Limited Records, then you must specify the following additional parameters: Limit: Maximum number of results that this operation should return. Offset: Index of the record post which all the records should return.",
+          "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
-          "name": "limit",
-          "tooltip": "The maximum number of records to return. Default: 10",
-          "description": "(Optional) Maximum number of records that this operation should return. Default: 10"
-        },
-        {
-          "title": "Offset",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "offset",
-          "tooltip": "The offset of the first item to return. Default: 0",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
+          "type": "select",
+          "options": [
+            "Fetch All Records",
+            "Fetch Limited Records"
+          ],
+          "name": "records",
+          "value": "Fetch All Records",
+          "onchange": {
+            "Fetch All Records": [],
+            "Fetch Limited Records": [
+              {
+                "title": "Limit",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "limit",
+                "tooltip": "Specify the maximum number of policies that this operation should return. Default:10",
+                "description": "Specify the maximum number of policies that this operation should return. Default:10"
+              },
+              {
+                "title": "Offset",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "offset",
+                "tooltip": "To skip the first n element based upon the value you specify in there",
+                "description": "Specify the count of the first few records to skip while retrieving response."
+              }
+            ]
+          }
         }
       ]
     },
@@ -879,24 +974,43 @@
           "visible": true
         },
         {
-          "title": "Limit",
-          "required": false,
+          "title": "Number of Records to Return",
+          "description": "Select whether you want this operation to Fetch Limited Records or Fetch All Records. If you select Fetch Limited Records, then you must specify the following additional parameters: Limit: Maximum number of results that this operation should return. Offset: Index of the record post which all the records should return.",
+          "required": true,
           "editable": true,
           "visible": true,
-          "type": "integer",
-          "name": "limit",
-          "tooltip": "The maximum number of records to return. Default: 10",
-          "description": "(Optional) Maximum number of records that this operation should return. Default: 10"
-        },
-        {
-          "title": "Offset",
-          "required": false,
-          "editable": true,
-          "visible": true,
-          "type": "integer",
-          "name": "offset",
-          "tooltip": "The offset of the first item to return. Default: 0",
-          "description": "(Optional) Index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records, say events starting after the 10th event. By default, this is set as 0."
+          "type": "select",
+          "options": [
+            "Fetch All Records",
+            "Fetch Limited Records"
+          ],
+          "name": "records",
+          "value": "Fetch All Records",
+          "onchange": {
+            "Fetch All Records": [],
+            "Fetch Limited Records": [
+              {
+                "title": "Limit",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "limit",
+                "tooltip": "Specify the maximum number of Vulnerabilities that this operation should return. Default:10",
+                "description": "Specify the maximum number of Vulnerabilities that this operation should return. Default:10"
+              },
+              {
+                "title": "Offset",
+                "required": false,
+                "editable": true,
+                "visible": true,
+                "type": "integer",
+                "name": "offset",
+                "tooltip": "To skip the first n element based upon the value you specify in there",
+                "description": "Specify the count of the first few records to skip while retrieving response."
+              }
+            ]
+          }
         }
       ]
     }
