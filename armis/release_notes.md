@@ -1,10 +1,14 @@
-What's Improved
-- This version is QA certified
+#### What's Improved
+
+- This connector version is now certified. 
 - Added following new actions:
   - Update Device
   - Get Policies List
   - Update Policy
   - Get Reports List
   - Get Vulnerability Matches
-- Added the ability to configure data ingestion (using the Data Ingestion Wizard). The Data Ingestion Wizard also supports multiple configurations specified on the Configurations tab of the Armis connector, ensuring respective global variables based on the selected configuration are used while ingesting data.
-- Changed action name, parameter name and output schema for various actions.
+- Renamed following actions:  
+  - Renamed Add Tags to a Device to Add Device Tag 
+  - Renamed Remove Tags from a Device to Remove Device Tag 
+- You can now configure data ingestion using the Data Ingestion Wizard. The Data Ingestion Wizard also supports multiple configurations specified on the Configurations tab of the Armis connector that ensures usage of respective global variables while ingesting data based on the selected configuration. 
+

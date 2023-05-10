@@ -13,7 +13,7 @@
   "ingestion_modes": [
     "scheduled"
   ],
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/armis/575/armis-v1-1-0",
   "configuration": {
     "fields": [
       {
@@ -93,11 +93,11 @@
           "name": "start_time",
           "title": "Start Time",
           "type": "datetime",
-          "description": "Specify the starting DateTime to only include those items that have been created after the specified timestamp. ",
+          "description": "Specify the start date and time to retrieve alerts from the Armis server. ",
           "required": false,
           "visible": true,
           "editable": true,
-          "tooltip": "Specify the starting DateTime to only include those items that have been created after the specified timestamp. "
+          "tooltip": "Specify the start date and time to retrieve alerts from the Armis server. "
         },
         {
           "title": "Risk Level",
@@ -148,8 +148,8 @@
           "title": "Sites",
           "name": "site",
           "type": "text",
-          "tooltip": "Specify the Sites to filter alerts retrieved from the Armis server.",
-          "description": "(Optional) Specify the Sites to filter alerts retrieved from the Armis server.",
+          "tooltip": "Specify the sites whose associated records you want to retrieve from the Armis server.",
+          "description": "(Optional) Specify the sites whose associated records you want to retrieve from the Armis server.",
           "required": false,
           "editable": true,
           "visible": true
@@ -448,8 +448,8 @@
           "title": "Sites",
           "name": "site",
           "type": "text",
-          "tooltip": "Specify the Sites to filter devices retrieved from the Armis server.",
-          "description": "(Optional) Specify the Sites to filter devices retrieved from the Armis server.",
+          "tooltip": "Specify the sites whose associated records you want to retrieve from the Armis server.",
+          "description": "(Optional) Specify the sites whose associated records you want to retrieve from the Armis server.",
           "required": false,
           "editable": true,
           "visible": true
@@ -643,8 +643,8 @@
           "title": "Attributes",
           "name": "attributes",
           "type": "json",
-          "tooltip": "Specify the json containing attributes and their values to update attributes of a device.",
-          "description": "Specify the json containing attributes and their values to update attributes of a device.",
+          "tooltip": "Specify the JSON containing attributes and their values to update on the device. ",
+          "description": "Specify the JSON containing attributes and their values to update on the device. ",
           "required": true,
           "editable": true,
           "visible": true,
@@ -954,7 +954,7 @@
           "name": "input_type",
           "type": "select",
           "tooltip": "Select one of the input type to retrieve vulnerability matches from Armis server",
-          "description": "Select one of the input type to retrieve vulnerability matches from Armis server",
+          "description": "Select one of the input type to retrieve vulnerability matches from Armis server: Device IDs or Vulnerability IDs",
           "options": [
             "Device IDs",
             "Vulnerability IDs"
